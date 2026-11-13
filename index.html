@@ -180,6 +180,15 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
   .final .steps{grid-column:2;grid-row:1/span 4;margin:0;}
 }
 
+/* Isot näytöt: koko sivu skaalautuu, jotta sisällön osuus näytön leveydestä pysyy samana (n. 1440 px = 1) */
+@media (min-width:1700px){body{zoom:1.18}}
+@media (min-width:2000px){body{zoom:1.38}}
+@media (min-width:2300px){body{zoom:1.6}}
+@media (min-width:2700px){body{zoom:1.85}}
+@media (min-width:3200px){body{zoom:2.2}}
+@media (min-width:3700px){body{zoom:2.6}}
+@media (min-width:4600px){body{zoom:3.2}}
+
 /* Paljastus vierittäessä */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
 .rv.in{opacity:1;transform:none;}
