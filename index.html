@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fi" data-theme="dark">
+<html lang="fi" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,7 +41,7 @@ header{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-
 .stripes.b{bottom:0}
 .kicker{display:inline-block;font:800 12px/1 Manrope,system-ui,sans-serif;letter-spacing:.32em;padding-left:.32em;color:var(--y);margin:10px 0 14px;}
 [data-theme="light"] .kicker{color:var(--ink);}
-.hero h1{font:800 clamp(40px,12vw,66px)/1 Manrope,system-ui,sans-serif;text-transform:uppercase;letter-spacing:-.03em;}
+.hero h1{font:800 clamp(30px,10.4vw,60px)/1 Manrope,system-ui,sans-serif;text-transform:uppercase;letter-spacing:-.03em;}
 .hero h1 span{display:block;opacity:0;transform:scale(2.2);filter:blur(6px);animation:slam .42s cubic-bezier(.2,.9,.25,1.1) forwards;}
 .hero h1 span:nth-child(1){animation-delay:.15s}.hero h1 span:nth-child(2){animation-delay:.4s}.hero h1 span:nth-child(3){animation-delay:.65s}.hero h1 span:nth-child(4){animation-delay:.9s;color:var(--y);text-shadow:3px 3px 0 rgba(0,0,0,.25);}
 [data-theme="light"] .hero h1 span:nth-child(4){color:var(--ink);text-shadow:3px 3px 0 #fff;}
@@ -138,6 +138,48 @@ footer{display:flex;flex-wrap:wrap;gap:6px 12px;justify-content:center;align-ite
 footer a{color:var(--dim);text-decoration:underline;text-underline-offset:2px;}
 footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-spacing:.02em;}
 
+/* Desktop (v. 11/2026): sisältö leveämmäksi, hero kahteen palstaan */
+.top>.top-stripes{display:none;}
+@media (min-width:900px){
+  body{font-size:16px;}
+  .container{max-width:none;}
+  header,.section,footer{padding-left:max(32px,calc((100% - 1100px)/2));padding-right:max(32px,calc((100% - 1100px)/2));}
+  header{padding-top:14px;padding-bottom:14px;}
+  .top{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;background:var(--hero-bg);color:var(--hero-ink);padding:64px max(32px,calc((100% - 1100px)/2)) 72px;}
+  .top>.top-stripes{display:block;}
+  .hero{background:none;padding:0;text-align:left;overflow:visible;}
+  .hero .stripes{display:none;}
+  .kicker{padding-left:0;margin-top:0;}
+  .hero h1{font-size:clamp(52px,5.4vw,72px);}
+  .hero p.lead{margin:24px 0 30px;max-width:440px;font-size:17px;}
+  .demo-wrap{padding:0;}
+  .demo{box-shadow:0 18px 50px rgba(0,0,0,.28);}
+  .demo-cap{color:var(--hero-ink);opacity:.75;}
+  .section{padding-top:64px;padding-bottom:64px;}
+  .section h2{font-size:38px;max-width:760px;}
+  .section>p,.section>.card+p{max-width:720px;font-size:15px;}
+  .why{grid-template-columns:repeat(3,1fr);gap:16px;}
+  .why .feat{flex-direction:column;}
+  .grid{grid-template-columns:repeat(4,1fr);gap:16px;}
+  .feat{padding:18px;}
+  .feat span{font-size:13px;}
+  .card{padding:8px 24px;}
+  #uutta .card,details.older .card{column-count:2;column-gap:40px;}
+  .card .update{break-inside:avoid;}
+  .ai{max-width:720px;}
+  .m-only{display:none;}
+  .shots{display:grid;grid-template-columns:repeat(9,1fr);gap:12px;overflow:visible;margin:10px 0 0;padding:0;}
+  .shot{width:auto;max-width:none;}
+  .shot figcaption span{font-size:11px;}
+  details.older{max-width:1100px;}
+  .final{display:grid;grid-template-columns:1fr 1fr;column-gap:64px;align-items:center;text-align:left;padding:72px max(32px,calc((100% - 1100px)/2));}
+  .final>*:not(.steps){grid-column:1;}
+  .final .kicker{margin-bottom:0;}
+  .final h2{font-size:56px;}
+  .final .cta{justify-self:start;}
+  .final .steps{grid-column:2;grid-row:1/span 4;margin:0;}
+}
+
 /* Paljastus vierittäessä */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
 .rv.in{opacity:1;transform:none;}
@@ -155,6 +197,7 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
   </div>
 </header>
 
+<div class="top">
 <!-- HERO -->
 <section class="hero">
   <div class="kicker">TREENIPÄIVÄKIRJA</div>
@@ -175,6 +218,8 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
     <div class="stamp"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="gst" d="M50,50 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0"/></defs><circle class="bg" cx="50" cy="50" r="48"/><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3.2"/><circle cx="50" cy="50" r="27" fill="none" stroke="currentColor" stroke-width="1.6"/><text font-size="11" font-weight="800" fill="currentColor" font-family="system-ui,sans-serif"><textPath href="#gst" textLength="216" lengthAdjust="spacing">JÄRKÄLE · TALLENNETTU · </textPath></text><path d="M41 44 l6 6 l12 -12" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="50" y="64" text-anchor="middle" font-size="11" font-weight="800" fill="currentColor" font-family="system-ui,sans-serif">PENKKI</text></svg></div>
   </div>
   <p class="demo-cap">Edellinen kerta harmaana, yksi napautus kuittaa. + nostaa painoa. Tallennus lyö leiman.</p>
+</div>
+<div class="stripes b top-stripes"></div>
 </div>
 
 <!-- SALI -->
@@ -245,7 +290,7 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
 <section class="section rv">
   <span class="tag">Teemat</span>
   <h2>Yhdeksän ilmettä</h2>
-  <p>Pyyhkäise ja katso. Jokaisessa on vaalea ja tumma versio sekä oma käynnistysanimaatio. Vaihto: <strong>Asetukset → Teema.</strong></p>
+  <p><span class="m-only">Pyyhkäise ja katso. </span>Jokaisessa on vaalea ja tumma versio sekä oma käynnistysanimaatio. Vaihto: <strong>Asetukset → Teema.</strong></p>
   <div class="shots">
     <figure class="shot"><img src="kuvat/teema-ampiainen.webp" alt="Järkäle Järkäle-teemassa" loading="lazy" width="420" height="855"><figcaption>Järkäle<span>keltamusta oletus</span></figcaption></figure>
     <figure class="shot"><img src="kuvat/teema-kaurapuuro.webp" alt="Järkäle Kaurapuuro-teemassa" loading="lazy" width="420" height="855"><figcaption>Kaurapuuro<span>lämmin ja rauhallinen</span></figcaption></figure>
@@ -379,7 +424,7 @@ const html=document.documentElement, tbtn=document.getElementById('theme-btn');
 const SUN=`<svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.8v1.9M12 19.3v1.9M2.8 12h1.9M19.3 12h1.9M5.5 5.5l1.3 1.3M17.2 17.2l1.3 1.3M5.5 18.5l1.3-1.3M17.2 6.8l1.3-1.3"/></svg>`, MOON=`<svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 14.6A7.8 7.8 0 1 1 9.4 4.5a6.2 6.2 0 0 0 10.1 10.1z"/></svg>`;
 function setT(t){ html.setAttribute('data-theme',t); tbtn.innerHTML=t==='dark'?MOON:SUN; try{localStorage.setItem('esittely-theme',t);}catch(_){} }
 function toggleTheme(){ setT(html.getAttribute('data-theme')==='dark'?'light':'dark'); }
-try{ setT(localStorage.getItem('esittely-theme')||'dark'); }catch(_){}
+try{ setT(localStorage.getItem('esittely-theme')||'light'); }catch(_){}
 // Paljastus vierittäessä
 const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const io='IntersectionObserver' in window&&!rm?new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }),{threshold:.12}):null;
