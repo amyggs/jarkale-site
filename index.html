@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fi" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Järkäle tracking</title>
+<link rel="icon" type="image/png" href="icon-192.png?v=4">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --y:#FFD23B;--y2:#EBC137;--ink:#0B0B0A;
+  --bg:#111312;--surf:#1C1F1E;--surf2:#2C302E;--bord:#3A3F3C;--text:#F4F5F0;--dim:#BCC0B8;
+  --hero-bg:#0B0B0A;--hero-ink:#F4F5F0;--acc:#FFD23B;--green:#5FD38D;
+}
+[data-theme="light"]{
+  --bg:#F1F2EC;--surf:#FFFFFF;--surf2:#E6E8E1;--bord:#CCCFC8;--text:#181C1B;--dim:#5E625C;
+  --hero-bg:#FFD23B;--hero-ink:#0B0B0A;--acc:#8A6A00;--green:#1E7F4A;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font:400 15px/1.6 Manrope,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased;}
+.cond{font-family:Manrope,system-ui,sans-serif;}
+.ico{display:block;}
+a{color:inherit;}
+.container{max-width:520px;margin:0 auto;}
+
+/* Yläpalkki */
+header{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:var(--bg);border-bottom:1px solid var(--bord);}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.brand img{width:32px;height:32px;border-radius:8px;}
+.brand b{font:800 20px/1 Manrope,system-ui,sans-serif;letter-spacing:.02em;color:var(--text);}
+.hdr-r{display:flex;gap:8px;align-items:center;}
+.icon-btn{width:40px;height:40px;border-radius:10px;border:1px solid var(--bord);background:var(--surf);color:var(--text);display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.open-btn{height:40px;padding:0 16px;border-radius:10px;background:var(--y);color:var(--ink);font:800 14px/40px Manrope,system-ui,sans-serif;letter-spacing:.04em;text-decoration:none;text-transform:uppercase;}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:var(--hero-bg);color:var(--hero-ink);padding:46px 20px 40px;text-align:center;}
+.stripes{position:absolute;left:0;right:0;height:8px;background:repeating-linear-gradient(-45deg,var(--y) 0 8px,var(--ink) 8px 16px);}
+[data-theme="light"] .stripes{background:repeating-linear-gradient(-45deg,var(--ink) 0 8px,var(--y) 8px 16px);}
+.stripes.b{bottom:0}
+.kicker{display:inline-block;font:800 12px/1 Manrope,system-ui,sans-serif;letter-spacing:.32em;padding-left:.32em;color:var(--y);margin:10px 0 14px;}
+[data-theme="light"] .kicker{color:var(--ink);}
+.hero h1{font:800 clamp(40px,12vw,66px)/1 Manrope,system-ui,sans-serif;text-transform:uppercase;letter-spacing:-.03em;}
+.hero h1 span{display:block;opacity:0;transform:scale(2.2);filter:blur(6px);animation:slam .42s cubic-bezier(.2,.9,.25,1.1) forwards;}
+.hero h1 span:nth-child(1){animation-delay:.15s}.hero h1 span:nth-child(2){animation-delay:.4s}.hero h1 span:nth-child(3){animation-delay:.65s}.hero h1 span:nth-child(4){animation-delay:.9s;color:var(--y);text-shadow:3px 3px 0 rgba(0,0,0,.25);}
+[data-theme="light"] .hero h1 span:nth-child(4){color:var(--ink);text-shadow:3px 3px 0 #fff;}
+@keyframes slam{70%{opacity:1;transform:scale(.96);filter:blur(0)}100%{opacity:1;transform:none;filter:none}}
+.hero p.lead{font-size:16px;opacity:.85;max-width:340px;margin:20px auto 26px;}
+.cta{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 28px;border-radius:12px;background:var(--y);color:var(--ink);font:800 17px/1 Manrope,system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;box-shadow:0 6px 0 rgba(0,0,0,.35);transition:transform .1s,box-shadow .1s;}
+.cta:active{transform:translateY(4px);box-shadow:0 2px 0 rgba(0,0,0,.35);}
+[data-theme="light"] .hero .cta{background:var(--ink);color:var(--y);}
+.hero-note{margin-top:16px;font-size:12px;opacity:.75;letter-spacing:.04em;}
+
+/* Liikkuva demo */
+.demo-wrap{padding:28px 16px 6px;}
+.demo{background:var(--surf);border:1px solid var(--bord);border-radius:18px;padding:16px;position:relative;overflow:hidden;}
+.demo-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;}
+.demo-h b{font:800 17px/1 Manrope,system-ui,sans-serif;}
+.demo-h span{font-size:12px;color:var(--dim);}
+.d-row{display:grid;grid-template-columns:22px 1.4fr 1fr 44px;gap:8px;align-items:center;margin-bottom:8px;}
+.d-row .n{font:700 13px system-ui;color:var(--dim);text-align:center;}
+.d-f{height:42px;border-radius:10px;background:var(--surf2);display:flex;align-items:center;justify-content:center;font:700 17px system-ui;font-variant-numeric:tabular-nums;color:var(--dim);position:relative;}
+.d-f.kg{justify-content:space-between;padding:0 10px;}
+.d-f.kg i{font-style:normal;font-weight:500;font-size:20px;color:var(--dim);opacity:0;transition:opacity .2s;}
+.d-row.cur .d-f.kg i{opacity:1;}
+.d-row.done .d-f{color:var(--text);}
+.d-ck{height:42px;border-radius:10px;border:1.5px solid var(--bord);display:flex;align-items:center;justify-content:center;color:var(--dim);transition:background .2s,color .2s,transform .2s;}
+.d-row.done .d-ck{background:var(--y);border-color:var(--y);color:var(--ink);animation:pop .3s ease;}
+@keyframes pop{50%{transform:scale(1.15)}}
+.d-pr{position:absolute;right:-4px;top:-8px;font:800 10px system-ui;letter-spacing:.06em;text-transform:uppercase;background:var(--y);color:var(--ink);padding:2px 6px;border-radius:6px;opacity:0;transform:scale(.5);transition:all .25s cubic-bezier(.2,1.4,.4,1);}
+.d-row.pr .d-pr{opacity:1;transform:scale(1);}
+.stamp{position:absolute;right:66px;bottom:8px;z-index:3;width:92px;height:92px;color:var(--acc);opacity:0;transform:scale(2.4) rotate(-2deg);pointer-events:none;}
+.stamp svg{display:block;width:100%;height:100%;overflow:visible;}
+.stamp .bg{fill:var(--surf);fill-opacity:.94;}
+.demo.stamped .stamp{animation:stampHit .45s cubic-bezier(.2,.9,.3,1.15) forwards;}
+.demo.stamped{animation:shake .25s ease-out .3s;}
+@keyframes stampHit{70%{opacity:.95;transform:scale(.94) rotate(-13deg)}100%{opacity:.9;transform:rotate(-12deg)}}
+@keyframes shake{30%{transform:translateY(2px)}60%{transform:translateY(-1px)}}
+.demo-cap{font-size:12px;color:var(--dim);text-align:center;margin-top:10px;}
+
+/* Osiot */
+.section{padding:34px 16px;border-top:1px solid var(--bord);}
+.tag{display:inline-block;background:var(--y);color:var(--ink);font:800 11px/1 Manrope,system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:6px 9px 5px;border-radius:4px;margin-bottom:12px;}
+.section h2{font:800 27px/1.12 Manrope,system-ui,sans-serif;letter-spacing:-.025em;margin-bottom:12px;}
+.section p{color:var(--dim);margin-bottom:14px;font-size:14px;}
+.section p strong{color:var(--text);}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.feat{background:var(--surf);border:1px solid var(--bord);border-radius:14px;padding:14px;}
+.feat .fi{width:38px;height:38px;border-radius:10px;background:var(--y);color:var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+.feat b{display:block;font:800 15px/1.2 Manrope,system-ui,sans-serif;margin-bottom:4px;}
+.feat span{font-size:12px;color:var(--dim);line-height:1.45;display:block;}
+.span2{grid-column:1/-1;}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--text);border:1px solid var(--bord);border-radius:999px;padding:6px 12px 6px 8px;background:var(--surf);}
+.pill .ico{color:var(--acc);}
+.card{background:var(--surf);border:1px solid var(--bord);border-radius:14px;padding:4px 16px;}
+.update{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--bord);font-size:14px;color:var(--dim);line-height:1.55;}
+.update:last-child{border:none;}
+.update .ck{flex:none;width:22px;height:22px;border-radius:6px;background:var(--y);color:var(--ink);display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.update strong{color:var(--text);}
+.quote{border-left:5px solid var(--y);background:var(--surf);border-radius:0 12px 12px 0;padding:14px 16px;margin:14px 0;font-weight:600;color:var(--text);font-size:15px;}
+details.older{margin-top:4px;}
+details.older summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--surf);border:1px solid var(--bord);border-radius:14px;font:800 17px/1 Manrope,system-ui,sans-serif;}
+details.older summary::-webkit-details-marker{display:none;}
+details.older summary::after{content:"+";font-size:26px;color:var(--acc);}
+details.older[open] summary::after{content:"−";}
+details.older .sub{margin-top:18px;}
+details.older h3{font:800 19px/1.2 Manrope,system-ui,sans-serif;margin:20px 0 4px;}
+details.older .ver{font-size:12px;color:var(--dim);letter-spacing:.06em;text-transform:uppercase;}
+.ai{background:var(--surf);border:1px solid var(--bord);border-left:5px solid var(--y);border-radius:12px;padding:14px 16px;}
+.ai b{font:800 16px/1 Manrope,system-ui,sans-serif;}
+.ai .price{float:right;font-size:12px;font-weight:700;color:var(--green);}
+
+/* Teemakuvat: vaakarulla */
+.shots{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;margin:6px -16px 0;padding:4px 16px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.shots::-webkit-scrollbar{display:none;}
+.shot{flex:none;width:44%;max-width:190px;scroll-snap-align:start;margin:0;}
+.shot img{display:block;width:100%;height:auto;aspect-ratio:420/855;object-fit:cover;border-radius:16px;border:1px solid var(--bord);background:var(--surf2);}
+.shot figcaption{font:800 13px/1.2 Manrope,system-ui,sans-serif;margin-top:8px;color:var(--text);}
+.shot figcaption span{display:block;font-weight:500;font-size:12px;color:var(--dim);margin-top:2px;}
+.why{display:grid;gap:10px;margin:4px 0 16px;}
+.why .feat{display:flex;gap:12px;align-items:flex-start;}
+.why .feat .fi{flex:none;margin:0;}
+
+/* Asennus ja loppu */
+.final{background:var(--hero-bg);color:var(--hero-ink);text-align:center;padding:44px 20px 40px;position:relative;overflow:hidden;}
+.final h2{font:800 38px/1 Manrope,system-ui,sans-serif;letter-spacing:-.03em;margin:10px 0 10px;}
+.final p{opacity:.85;margin-bottom:22px;}
+[data-theme="light"] .final .cta{background:var(--ink);color:var(--y);}
+.steps{background:var(--surf);color:var(--text);border-radius:16px;padding:18px;margin-top:26px;text-align:left;}
+.steps .tag{margin-bottom:14px;}
+.step{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:14px;}
+.step:last-of-type{margin-bottom:0;}
+.step .num{flex:none;width:28px;height:28px;border-radius:6px;background:var(--y);color:var(--ink);font:800 15px/28px Manrope,system-ui,sans-serif;text-align:center;}
+.steps-note{font-size:12px;color:var(--dim);margin-top:14px;padding-top:12px;border-top:1px solid var(--bord);}
+footer{display:flex;flex-wrap:wrap;gap:6px 12px;justify-content:center;align-items:center;text-align:center;padding:20px 18px 26px;font-size:12px;color:var(--dim);border-top:1px solid var(--bord);}
+footer a{color:var(--dim);text-decoration:underline;text-underline-offset:2px;}
+footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-spacing:.02em;}
+
+/* Paljastus vierittäessä */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
+.rv.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}.hero h1 span{opacity:1;transform:none;filter:none;}.rv{opacity:1;transform:none;}.stamp{opacity:.9;transform:rotate(-12deg);}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <a class="brand" href="#"><img src="icon-192.png?v=4" alt=""><b>Järkäle</b></a>
+  <div class="hdr-r">
+    <button class="icon-btn" onclick="toggleTheme()" id="theme-btn" aria-label="Vaihda vaalea tai tumma"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 14.6A7.8 7.8 0 1 1 9.4 4.5a6.2 6.2 0 0 0 10.1 10.1z"/></svg></button>
+    <a class="open-btn" href="https://amyggs.github.io/jarkale-pilotti/">Avaa</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="kicker">TREENIPÄIVÄKIRJA</div>
+  <h1><span>Ohjelma.</span><span>Sarjat.</span><span>Ennätykset.</span><span>Palautuminen.</span></h1>
+  <p class="lead">Tuo oma tai valmentajan ohjelma tekstinä ja kirjaa treenit salilla. Halutessasi myös uni, paino ja palautuminen.</p>
+  <a class="cta" href="https://amyggs.github.io/jarkale-pilotti/">Avaa Järkäle <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.8 5 13.4h6.6l-1 7.8 8-10.7h-6.7z"/></svg></a>
+  <p class="hero-note">Ilmainen · Ei tiliä · Data on sinun</p>
+  <div class="stripes b"></div>
+</section>
+
+<!-- LIIKKUVA DEMO -->
+<div class="demo-wrap rv">
+  <div class="demo" id="demo">
+    <div class="demo-h"><b>Penkkipunnerrus</b><span>Viimeksi 80 × 8, 8, 7</span></div>
+    <div class="d-row" data-r="0"><span class="n">1</span><div class="d-f kg"><i>−</i><span class="v">80</span><i>+</i></div><div class="d-f">8</div><div class="d-ck"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></div></div>
+    <div class="d-row" data-r="1"><span class="n">2</span><div class="d-f kg"><i>−</i><span class="v">80</span><i>+</i></div><div class="d-f">8</div><div class="d-ck"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></div></div>
+    <div class="d-row" data-r="2"><span class="n">3</span><div class="d-f kg"><i>−</i><span class="v">80</span><i>+</i><span class="d-pr">Ennätys</span></div><div class="d-f">7</div><div class="d-ck"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></div></div>
+    <div class="stamp"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="gst" d="M50,50 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0"/></defs><circle class="bg" cx="50" cy="50" r="48"/><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3.2"/><circle cx="50" cy="50" r="27" fill="none" stroke="currentColor" stroke-width="1.6"/><text font-size="11" font-weight="800" fill="currentColor" font-family="system-ui,sans-serif"><textPath href="#gst" textLength="216" lengthAdjust="spacing">JÄRKÄLE · TALLENNETTU · </textPath></text><path d="M41 44 l6 6 l12 -12" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="50" y="64" text-anchor="middle" font-size="11" font-weight="800" fill="currentColor" font-family="system-ui,sans-serif">PENKKI</text></svg></div>
+  </div>
+  <p class="demo-cap">Edellinen kerta harmaana, yksi napautus kuittaa. + nostaa painoa. Tallennus lyö leiman.</p>
+</div>
+
+<!-- SALI -->
+<section class="section rv">
+  <span class="tag">Sali</span>
+  <h2>Oma ohjelma sisään, kirjaus nopeaksi</h2>
+  <div class="why">
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 3.2H6.6A1.6 1.6 0 0 0 5 4.8v14.4a1.6 1.6 0 0 0 1.6 1.6h10.8a1.6 1.6 0 0 0 1.6-1.6V7.7z"/><path d="M14.5 3.2v4.5H19M8.5 12.5h7M8.5 16h4.5"/></svg></div><div><b>Ohjelma sisään tekstinä</b><span>Liitä valmentajan ohjelma Wordista, muistiinpanoista tai viestistä, tai Strongin Jaa treeni -teksti. Järkäle tunnistaa treenipäivät, sarjat, supersarjat sekä rest-pause- ja pudotussarjat ja ohittaa ohjetekstit. Viisijakoinen ohjelma menee sisään alle minuutissa. Ei kirjoitettua ohjelmaa? Kirjoita liikkeet, joita teet nyt, niin niistä tulee ohjelma.</span></div></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div><div><b>Historia Strongista ja Hevystä</b><span>Tuo vanhat treenit vientitiedostosta: Treeni → Asetukset → Tuo treenihistoria. Ennätykset ja liikkeiden kehitys jatkuvat siitä, mihin jäit.</span></div></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.8 5 13.4h6.6l-1 7.8 8-10.7h-6.7z"/></svg></div><div><b>Sarja yhdellä napautuksella</b><span>Edellisen kerran kilot ja toistot ovat valmiina harmaina. Jos teit saman, kuittaa. Painoa ja toistoja säädät − / + -napeilla avaamatta näppäimistöä.</span></div></div>
+  </div>
+  <p>Treenit ovat käytössä, kun valitset aloituksessa <strong>Kirjata treenejä</strong> tai <strong>Molempia</strong>. Myöhemmin: <strong>Asetukset → Treenit, cardio ja kaudet → Saliohjelmat ja treeniseuranta.</strong></p>
+  <p>Ajastin, ääni, värinä, painon askel, rasittavuuden kirjaus ja historian tuonti: <strong>Treeni → Asetukset.</strong></p>
+  <p style="margin:0">Ajastimen ääni ja värinä toimivat, kun Järkäle on auki näytöllä. Selainsovellus ei pysty hälyttämään lukitulla näytöllä.</p>
+</section>
+
+<!-- MITEN SE TOIMII -->
+<section class="section rv">
+  <span class="tag">Miten se toimii</span>
+  <h2>Vain ne kentät, jotka valitset</h2>
+  <p>Useimmat seurantasovellukset näyttävät kymmeniä kenttiä, joita et koskaan täytä. Järkäleessä valitset asetuksista, mitä seuraat, ja kirjausnäkymässä näkyvät vain ne. Painon ja unen seuraaja näkee kaksi kenttää. Kaiken seuraaja näkee kaiken.</p>
+</section>
+
+<!-- MITÄ SEURATAAN -->
+<section class="section rv">
+  <span class="tag">Mitä voit seurata</span>
+  <h2>Keho ja fiilis samassa näkymässä</h2>
+  <p>Älylaite mittaa sykkeen ja unen. Sitä se ei tiedä, miltä sinusta tuntuu – sen kirjaat itse yhdellä numerolla.</p>
+  <div class="grid">
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="16" rx="4"/><path d="M8 10.5a4.6 4.6 0 0 1 8 0"/><path d="M12 11.5l1.8-2.6"/></svg></div><b>Paino ja keho</b><span>Aamupaino, 7 päivän keskiarvo, kehon mitat ja rasvaprosentti</span></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 14.6A7.8 7.8 0 1 1 9.4 4.5a6.2 6.2 0 0 0 10.1 10.1z"/></svg></div><b>Uni ja palautuminen</b><span>Tuntimäärä ja oma tuntemus 1–5</span></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 7v10M17.5 7v10M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/></svg></div><b>Sali</b><span>Oma ohjelma, sarjakirjaus, ennätykset ja kehityskäyrät</span></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16.5l6-6 4 4 8-8"/><path d="M15.2 6.5H21v5.8"/></svg></div><b>Trendit</b><span>Viikko, kuukausi, vuosi – ja yksi havainto joka päivältä</span></div>
+    <div class="feat span2"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.8 5 13.4h6.6l-1 7.8 8-10.7h-6.7z"/></svg></div><b>Oma fiilis</b><span>Palautumisen tunne ja yleinen vire numerona. Vain sinä tiedät, miltä tänään tuntuu – ei mikään laite.</span></div>
+  </div>
+  <div class="pills">
+    <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 8.8c0 5-8.4 10.7-8.4 10.7S3.6 13.8 3.6 8.8A4.3 4.3 0 0 1 12 6.6a4.3 4.3 0 0 1 8.4 2.2z"/><path d="M6.5 12.2h2.7l1.4-2.2 2.3 4.4 1.4-2.2h3.2"/></svg> Verenpaine</span>
+    <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2s6 6.4 6 10.8a6 6 0 0 1-12 0C6 9.6 12 3.2 12 3.2z"/><path d="M9.3 14.4a2.8 2.8 0 0 0 2.4 2.6"/></svg> Verensokeri</span>
+    <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M7.4 10.6 9.6 8.8l2 2.8 2.3-2.8 2.7 1.8"/><path d="M9.2 15.6h5.6"/></svg> Migreeni</span>
+    <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.3"/><path d="M12 9.7c-1.6-2.6-1.6-4.6 0-6.2 1.6 1.6 1.6 3.6 0 6.2M14.3 12c2.6-1.6 4.6-1.6 6.2 0-1.6 1.6-3.6 1.6-6.2 0M12 14.3c1.6 2.6 1.6 4.6 0 6.2-1.6-1.6-1.6-3.6 0-6.2M9.7 12c-2.6 1.6-4.6 1.6-6.2 0 1.6-1.6 3.6-1.6 6.2 0"/></svg> Kuukautiskierto</span>
+    <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="9" width="11.5" height="6" rx="3"/><path d="M8.25 9v6"/><circle cx="17.5" cy="12" r="3.8"/><path d="M14.9 14.6l5.2-5.2"/></svg> Lääkkeet</span>
+    <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="8.4" width="18.8" height="7.2" rx="3.6" transform="rotate(-45 12 12)"/><path d="M10.2 10.2h.01M13.8 13.8h.01M10.2 13.8h.01M13.8 10.2h.01"/></svg> Kivut</span>
+    <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="8" width="19" height="8" rx="1.6"/><path d="M6.5 8v3M10 8v4M13.5 8v3M17 8v4"/></svg> Kehon mitat</span>
+    <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 3.2H6.6A1.6 1.6 0 0 0 5 4.8v14.4a1.6 1.6 0 0 0 1.6 1.6h10.8a1.6 1.6 0 0 0 1.6-1.6V7.7z"/><path d="M14.5 3.2v4.5H19M8.5 12.5h7M8.5 16h4.5"/></svg> Huomio</span>
+  </div>
+</section>
+
+<!-- UUTTA -->
+<section class="section rv" id="uutta">
+  <span class="tag">Uutta · 2.18.151 · marraskuu 2026</span>
+  <h2>Kehitys pidemmältä ajalta ja oikeat ennätykset</h2>
+  <div class="card">
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Kehitys pidemmältä ajalta.</strong> Liikkeen käyrästä voi valita aikavälin: 3 kk, 6 kk, 1 v tai kaikki. Aiemmin käyrä näytti vain viimeisimmät kerrat.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Ennätykset ovat oikeita.</strong> Ennätys on raskain paino tai paras suoritus, jossa paino ja toistot lasketaan yhteen. Kevyempi paino muutamalla lisätoistolla ei ole ennätys, jos olet tehnyt raskaammalla painolla kovemman sarjan. Ennätys kertoo, paljonko parani (esim. +5 kg tai +2 toistoa), ja treenin aikana näet liikkeen ennätyssarjan Viimeksi-rivin alla.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Katso treeni ennen aloitusta.</strong> Treenipäivän napautus näyttää liikkeet, tavoitteet ja viime kerran sarjat. Treeni alkaa Aloita treeni -napista.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Jaa kuukausi kuvana.</strong> Treenipäivät kalenterissa ja kuukauden aikana eniten kehittyneet liikkeet: Treeni → Tehdyt treenit → Jaa kuukausi.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Ohjelma myös taulukosta.</strong> Ohjelman tuonti lukee taulukon, esimerkiksi ChatGPT:n tekemän ohjelman. Liitä se sellaisenaan kohtaan Treeni → Uusi ohjelma → Tuo tekstistä.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Rest-pause- ja pudotussarjat selkeämmiksi.</strong> Napauta R/P- tai DS-tunnistetta, niin näet, mitä se tarkoittaa. Ennen rest-pausea käynnistyy 15 sekunnin tauko, pudotussarjaan on valmiina viime kerran pudotuspaino, ja lisärivit näkyvät liikkeen historiassa.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Sarjat luettavammiksi.</strong> Painossa näkyy yksikkö: 54 kg × 8. Rest-pause näkyy muodossa R/P 6 toistoa ja pudotussarja DS 32,5 kg × 6.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Kirjaa-näkymä siistimpi.</strong> Salitreenipäivänä treeniosio on yksi rivi, josta voi täydentää rasituksen ja treenin kulun. Huomiokentät avautuvat linkistä, ja painon muutos ei ole enää punainen tai vihreä.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Luvut nopeammin.</strong> Pidä −/+ -nappia pohjassa, niin luku juoksee. Askeleet säätyvät 100 kerrallaan, ja tyhjä kenttä aloittaa viime päivien tasosta.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Tiedot tallessa.</strong> Jos Google Drive ei ole käytössä, treenin jälkeen muistutetaan, että tiedot ovat vain tässä puhelimessa. Drive-kohdassa näet, mitä Driveen on tallennettu. Instagramin tai Facebookin linkistä avattuna sovellus neuvoo avaamaan sen oikeassa selaimessa.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Korjauksia.</strong> Treeni ei enää hyppää seuraavaan liikkeeseen, kun liike on kesken. Tallennetun treenin muokkauksessa Tallenna-nappi pysyy näkyvissä.</span></div>
+  </div>
+</section>
+
+<!-- TEEMAT -->
+<section class="section rv">
+  <span class="tag">Teemat</span>
+  <h2>Yhdeksän ilmettä</h2>
+  <p>Pyyhkäise ja katso. Jokaisessa on vaalea ja tumma versio sekä oma käynnistysanimaatio. Vaihto: <strong>Asetukset → Teema.</strong></p>
+  <div class="shots">
+    <figure class="shot"><img src="kuvat/teema-ampiainen.webp" alt="Järkäle Järkäle-teemassa" loading="lazy" width="420" height="855"><figcaption>Järkäle<span>keltamusta oletus</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-kaurapuuro.webp" alt="Järkäle Kaurapuuro-teemassa" loading="lazy" width="420" height="855"><figcaption>Kaurapuuro<span>lämmin ja rauhallinen</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-lasi.webp" alt="Järkäle Lasi-teemassa" loading="lazy" width="420" height="855"><figcaption>Lasi<span>huurrettu lasi</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-magnesium.webp" alt="Järkäle Magnesium-teemassa" loading="lazy" width="420" height="855"><figcaption>Magnesium<span>mustavalkoinen</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-kuusnelonen.webp" alt="Järkäle Kuusnelonen-teemassa" loading="lazy" width="420" height="855"><figcaption>Kuusnelonen<span>80-luvun kotitietokone</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-tekstitv.webp" alt="Järkäle Teksti-TV-teemassa" loading="lazy" width="420" height="855"><figcaption>Teksti-TV<span>sivu 100</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-manageri.webp" alt="Järkäle Manageri-teemassa" loading="lazy" width="420" height="855"><figcaption>Manageri<span>90-luvun manageripeli</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-soitin.webp" alt="Järkäle Soitin-teemassa" loading="lazy" width="420" height="855"><figcaption>Soitin<span>metalli ja vihreä LCD</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-fosfori.webp" alt="Järkäle Fosfori-teemassa" loading="lazy" width="420" height="855"><figcaption>Fosfori<span>vihreä kuvaputki</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- DRIVE -->
+<section class="section rv">
+  <span class="tag">Varmuuskopio</span>
+  <h2>Tiedot tallessa omassa Drivessa</h2>
+  <p>Kun yhdistät Järkäleen Google Driveen, kirjaukset, mitat ja treenit tallentuvat omaan Driveesi. Ne säilyvät, vaikka puhelin vaihtuisi.</p>
+  <div class="card">
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Käyttöönotto:</strong> Asetukset → Yhdistä Google Driveen → valitse tili → hyväksy lupa. Googlen ruudussa nimenä näkyy amyggs.github.io.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Vain sinun.</strong> Tiedot menevät Driven piilotettuun sovelluskansioon. Kukaan muu ei näe niitä, ei myöskään sovelluksen tekijä.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Uusi puhelin:</strong> avaa Järkäle, yhdistä samalla Google-tilillä, ja tiedot palaavat.</span></div>
+  </div>
+  <p style="margin:14px 0 0"><a href="tietosuoja.html">Tietosuoja</a></p>
+</section>
+
+<!-- HAVAINTO JA AI -->
+<section class="section rv">
+  <span class="tag">Päivän huomio</span>
+  <h2>Yksi havainto, ei saarnaa</h2>
+  <p>Tallennuksen jälkeen näet yhden lauseen omasta datastasi: "Uni alle tavoitteen kolme päivää putkeen." Ei neuvoja – vain se, mitä numerot kertovat. Toimii ilman nettiä.</p>
+  <div class="ai"><span class="price">muutama snt / kpl</span><b>Kirjallinen yhteenveto</b><p style="margin:6px 0 0;font-size:13px">Halutessasi tekoälyn kirjoittama yhteenveto valitusta jaksosta omalla API-avaimella. Maksu menee suoraan tarjoajalle ja syntyy vain, kun painat nappia.</p></div>
+</section>
+
+<!-- iPHONE -->
+<section class="section rv">
+  <span class="tag">iPhone</span>
+  <h2>Käyttö iPhonella</h2>
+  <p>Avaa Järkäle Safarissa, paina Jaa → Lisää Koti-valikkoon ja käytä sovellusta kuvakkeesta. Kotivalikon sovelluksella on iPhonessa oma tallennustilansa, joten kirjaa alusta asti kuvakkeesta tai yhdistä Google Driveen.</p>
+</section>
+
+<!-- AIEMMAT -->
+<section class="section rv">
+  <details class="older">
+    <summary>Aiemmat versiot</summary>
+    <div class="sub">
+      <span class="ver">2.18.120 · lokakuu 2026</span><h3>Historian tuonti, erikoistekniikat ja treeni ensin</h3>
+      <div class="card">
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Treenihistoria Strongista ja Hevystä.</strong> Treeni → Asetukset → Tuo treenihistoria ja sovelluksen vientitiedosto. Liikkeet voi yhdistää Järkäleen liikkeisiin ennen tuontia. Lämmittelysarjat jätetään pois, ja tuonnin voi perua.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Ohjelman tuonti tarkemmaksi.</strong> Strongin Jaa treeni -teksti käy sellaisenaan. Wordista kopioidussa ohjelmassa supersarjat säilyvät, ja liikkeen perässä sulkeissa oleva ohje siirtyy liikkeen ohjeeksi.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Rest-pause- ja pudotussarjat.</strong> Ohjelman merkintä kuten ”+ R/P + DS” luo treeniin merkityt lisärivit, ja pudotussarjan paino ehdotetaan valmiiksi (30 % kevyempi). Lisärivin voi lisätä myös liikkeen ⋯-valikosta. Lisärivit eivät kasvata sarjamäärää eivätkä ole ennätyksiä.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Treeni ensin.</strong> Kesken jäänyt treeni avautuu suoraan, kun avaat sovelluksen. Jos kirjaat pelkkiä treenejä, sovellus aukeaa Treeni-välilehdelle. Suunniteltuna treenipäivänä Kirjaa-sivulla näkyy seuraava treeni ja Aloita-nappi (treenipäivät: Asetukset → Tavoitteet).</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Arkistointi helpommaksi.</strong> Kun tuot uuden ohjelman, sovellus kysyy, arkistoidaanko edellinen. Arkistoi-nappi on ohjelman muokkausnäkymän yläreunassa.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Vertailu omaan tasoon.</strong> Päivän tila kertoo, jos uni, palautuminen tai vire on ollut vähintään kolme päivää peräkkäin selvästi tavallista tasoasi alempana tai ylempänä. Trendit vertaa viime viikkoa omaan tasoosi.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Selkeämpi treenin yhteenveto ja jako.</strong> Sarjat liikkeen nimen alla, ennätykset omalla rivillään ja paras ennätys yläosassa. Liikkeiden huomiot lähtevät jakoon vain, jos valitset niin.</span></div>
+  </div>
+      <span class="ver" style="display:block;margin-top:18px">2.18.88 · lokakuu 2026</span><h3>Koettu rasittavuus ja selkeämmät treeniasetukset</h3>
+      <div class="card">
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Koettu rasittavuus (valinnainen).</strong> Treeni → Asetukset → Koettu rasittavuus: valitse RIR (montako toistoa olisi vielä jaksanut) tai RPE (kuinka raskas sarja oli). Sarjan alle tulee − / + -säädin. Harmaa arvo on ehdotus edellisestä sarjasta, eikä se tallennu ennen kuin napautat. Arvo näkyy edellisen kerran rivillä, yhteenvedossa ja liikkeen historiassa. Oletuksena pois.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Sarjarivi mukautuu.</strong> Ilman rasittavuuden kirjausta kentät ja napit ovat isompia. Kun se on päällä, rivi tiivistyy säätimen tieltä.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Treeniasetukset Treeniin.</strong> Taukoajastin, ääni, värinä, näyttö päällä, painon askel ja rasittavuus löytyvät Treeni-välilehden Asetukset-napista. Pääasetuksissa on vain Saliohjelmat-kytkin.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Ohjelman tuonti sujuvammaksi.</strong> Tallenna-nappi pysyy näkyvissä pitkälläkin ohjelmalla, ohjelman oletusnimi on Oma ohjelma ja tallennuksen jälkeen päädyt suoraan Treeni-välilehden etusivulle.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Pelkkä treeni.</strong> Jos seuraat vain treenejä, Trendit näyttää vain treenit ja Mitat-välilehti piilotetaan, kunnes otat kehon seurannan käyttöön.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Ensimmäinen treeni.</strong> Yhteenveto kertoo, että vertailu alkaa toisesta kerrasta. Aloitusnäyttö kysyy ensin, seuraatko treenejä, kehoa vai molempia.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Turvallisempi nollaus ja nopeampi käynnistys.</strong> Ennen nollausta ja palautusta tehdään turvakopio, ja Kumoa palauttaa tilan. Fontit ladataan omalta palvelimelta, joten sovellus avautuu nopeasti heikollakin verkolla.</span></div>
+  </div>
+
+      <span class="ver">2.18.76 · lokakuu 2026</span><h3>Uusi ilme ja selkeämpi kirjaus</h3>
+      <div class="card">
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Uusi logo ja nimi.</strong> Kotinäytön kuvake on nyt keltainen J. ja nimi Järkäle. Kuvake päivittyy, kun puhelin hakee sovelluksen tiedot uudelleen, mikä voi kestää muutaman päivän.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Kelluva alapalkki.</strong> Järkäle-, Kaurapuuro- ja Lasi-teemoissa alapalkki kelluu sisällön päällä, ja sisältö rullaa sen alta.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Uusi käynnistys.</strong> Järkäle-teemassa keltainen laatta putoaa ja tömähtää, J piirtyy siihen ja piste napsahtaa paikalleen.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Yläreuna teeman väriin.</strong> Puhelimen tilarivi on samaa väriä kuin sovelluksen yläosa kaikissa teemoissa, myös Lasissa.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Kivut tiiviimmin.</strong> Kun kivun taso on merkitty, kortti pienenee yhdeksi riviksi (esim. Hauis oikea · 1/5 · Ennallaan). Napauta riviä muokataksesi. Merkitsemätön kipu pysyy auki.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Ennätysmerkki oikeaan kohtaan.</strong> Merkki näkyy sen kentän kohdalla, joka parani: uusi raskain paino kg-kentässä, enemmän toistoja toistokentässä. Sama ennätys merkitään vain kerran.</span></div>
+  </div>
+      <span class="ver" style="display:block;margin-top:18px">2.18.66 · lokakuu 2026</span><h3>Treeni sujuvammaksi</h3>
+      <div class="card">
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Painon − / + -napit.</strong> Seuraavana vuorossa olevan sarjan kg-kentässä on − ja +. Säätö lähtee edellisen kerran painosta, joten näppäimistöä ei tarvitse avata. Askeleen (0,5–5 kg, oletus 1,25) voi valita: Treeni → Asetukset.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Kiinnitetty huomio.</strong> Liikkeen huomion voi kiinnittää liikkeeseen (Huomio → Kiinnitä liikkeeseen), jolloin esim. "penkki 4, kahva keskelle" näkyy joka treenissä. Tavallinen huomio koskee vain sitä treeniä.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Liikkeet lihasryhmittäin.</strong> Liikkeiden tulokset ja kehitys on jaettu ryhmiin (rinta, selkä, olkapäät, kädet, jalat, muut). Ryhmä päätellään nimestä, ja sen voi vaihtaa liikkeen sivulla.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Tehdyt treenit ja lukutila.</strong> Tallennettu treeni avautuu yhteenvetona, ja sarjoja voi muuttaa Muokkaa treeniä -napista. Huomiot näkyvät yhteenvedossa.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Tallennusleima ja jako kuvana.</strong> Treenin tallennus lyö yhteenvetoon Järkäle-leiman. Jaa-napista treenin voi jakaa tekstinä tai kuvana teeman väreissä.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Uudet käynnistykset.</strong> Järkäle-teemassa musta järkäle putoaa ja halkeaa, Lasi kuplii ja Kaurapuuron lämpimät sävyt valuvat ruudulle.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Pienempiä parannuksia.</strong> Arvioitu 1RM näkyy ennätysten yhteydessä ja liikkeen sivulla. Vahvistukset näkyvät Järkäleen omassa ikkunassa. Napit ovat isompia, ja Poista päivän kirjaus on Kirjaa-näkymän alimpana.</span></div>
+  </div>
+      <span class="ver" style="display:block;margin-top:18px">2.18.43 · lokakuu 2026</span><h3>Ennätykset ja teemat</h3>
+      <div class="card">
+        <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Ennätyksen hetki.</strong> Ennätyssarjasta puhelin värähtää kahdesti ja liikkeen alle tulee rivi: uusi ennätys ja aiempi paras.</span></div>
+        <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Selkeämpi Treeni-välilehti.</strong> Kierrossa seuraava päivä korostetaan, mutta minkä tahansa päivän voi aloittaa. Ohjelmat omana listanaan.</span></div>
+        <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Liikkeen historia jatkuu</strong>, vaikka nimen kirjoitusasu vaihtuisi (Hack-kyykky / Hack kyykky).</span></div>
+      </div>
+      <span class="ver" style="display:block;margin-top:18px">2.18 · lokakuu 2026</span><h3>Treeniin pienempiä parannuksia</h3>
+      <div class="card">
+        <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span>Lopeta-kysely kysyy rasituksen ja treenin kulun, ja ne menevät suoraan päivän kirjaukseen.</span></div>
+        <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span>Tuntuman valinta merkitsee liikkeen valmiiksi ja pienentää sen.</span></div>
+        <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span>Puhelimen takaisin-ele palaa näkymä kerrallaan.</span></div>
+      </div>
+      <span class="ver" style="display:block;margin-top:18px">2.11 · lokakuu 2026</span><h3>Päiväseuranta</h3>
+      <div class="card">
+        <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span>Viikkoyhteenveto maanantaisin: painon suunta, treenit, uni, kivut ja yksi havainto.</span></div>
+        <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span>Jatkuuko kipu? Eilisen kivun tilanne yhdellä napautuksella.</span></div>
+        <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span>Mitat-sivu, ihopoimumittaus ja Päivässä jotain poikkeavaa -merkintä.</span></div>
+        <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span>Trendit muistavat valintasi, ja päivää voi vaihtaa pyyhkäisemällä.</span></div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<!-- LOPPU -->
+<section class="final">
+  <div class="kicker">VALMIS?</div>
+  <h2>Ota käyttöön</h2>
+  <p>Avautuu heti selaimessa. Asenna puhelimeen kuin sovellus.</p>
+  <a class="cta" href="https://amyggs.github.io/jarkale-pilotti/">Avaa Järkäle <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.8 5 13.4h6.6l-1 7.8 8-10.7h-6.7z"/></svg></a>
+  <div class="steps">
+    <span class="tag">Asenna kotinäytölle</span>
+    <div class="step"><span class="num">1</span><span>Avaa linkki <strong>Chrome</strong>-selaimella</span></div>
+    <div class="step"><span class="num">2</span><span>Paina oikeassa yläkulmassa <strong>⋮</strong></span></div>
+    <div class="step"><span class="num">3</span><span>Valitse <strong>Lisää aloitusnäyttöön</strong> ja sitten <strong>Asenna</strong> (ei "Luo pikakuvake"). Asennettu sovellus päivittää kuvakkeensa itse.</span></div>
+    <div class="step"><span class="num">4</span><span>Järkäle ilmestyy kotinäytölle omana kuvakkeenaan. Jos ei näy, katso sovelluslistasta ja vedä kuvake kotinäytölle.</span></div>
+    <p class="steps-note">Ei sovelluskauppaa · Ei rekisteröitymistä · Data on sinun</p>
+  </div>
+</section>
+
+<footer><b>Järkäle</b><span>Pilotti 2.18 · 2026</span><span style="flex-basis:100%;height:0"></span><span>Tekijä Aku Mykkänen</span><span>·</span><a href="tietosuoja.html">Tietosuoja</a></footer>
+</div>
+
+<script>
+const html=document.documentElement, tbtn=document.getElementById('theme-btn');
+const SUN=`<svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.8v1.9M12 19.3v1.9M2.8 12h1.9M19.3 12h1.9M5.5 5.5l1.3 1.3M17.2 17.2l1.3 1.3M5.5 18.5l1.3-1.3M17.2 6.8l1.3-1.3"/></svg>`, MOON=`<svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 14.6A7.8 7.8 0 1 1 9.4 4.5a6.2 6.2 0 0 0 10.1 10.1z"/></svg>`;
+function setT(t){ html.setAttribute('data-theme',t); tbtn.innerHTML=t==='dark'?MOON:SUN; try{localStorage.setItem('esittely-theme',t);}catch(_){} }
+function toggleTheme(){ setT(html.getAttribute('data-theme')==='dark'?'light':'dark'); }
+try{ setT(localStorage.getItem('esittely-theme')||'dark'); }catch(_){}
+// Paljastus vierittäessä
+const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const io='IntersectionObserver' in window&&!rm?new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }),{threshold:.12}):null;
+document.querySelectorAll('.rv').forEach(el=>io?io.observe(el):el.classList.add('in'));
+// Demo-silmukka: sarjat kuitataan, + nostaa painoa, ennätys, leima
+const demo=document.getElementById('demo'), rows=[...demo.querySelectorAll('.d-row')];
+function demoRun(){
+  rows.forEach(r=>{ r.className='d-row'; r.querySelector('.v').textContent='80'; }); demo.classList.remove('stamped');
+  const T=(ms,f)=>setTimeout(f,ms);
+  T(300,()=>rows[0].classList.add('cur'));
+  T(1000,()=>{ rows[0].classList.remove('cur'); rows[0].classList.add('done'); rows[1].classList.add('cur'); });
+  T(1900,()=>{ rows[1].classList.remove('cur'); rows[1].classList.add('done'); rows[2].classList.add('cur'); });
+  T(2500,()=>{ rows[2].querySelector('.v').textContent='81,25'; });
+  T(2900,()=>{ rows[2].querySelector('.v').textContent='82,5'; });
+  T(3500,()=>{ rows[2].classList.remove('cur'); rows[2].classList.add('done','pr'); });
+  T(4400,()=>{ void demo.offsetWidth; demo.classList.add('stamped'); });
+}
+if(rm){ rows.forEach(r=>r.classList.add('done')); rows[2].classList.add('pr'); demo.classList.add('stamped'); }
+else { demoRun(); setInterval(demoRun,7500); }
+</script>
+</body>
+</html>
