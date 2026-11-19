@@ -6,6 +6,17 @@
 <title>Järkäle – treenipäiväkirja</title>
 <meta name="description" content="Järkäle on ilmainen treenipäiväkirja sille, jolla on jo ohjelma. Ohjelma sisään liittämällä teksti, salilla viime kerran luvut valmiina, kehitys yhdellä silmäyksellä. Ei tiliä, tiedot omassa puhelimessa.">
 <link rel="canonical" href="https://jarkale.com/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:site_name" content="Järkäle">
+<meta property="og:url" content="https://jarkale.com/">
+<meta property="og:title" content="Järkäle – oma treeniohjelma, vähemmän näpyttelyä salilla">
+<meta property="og:description" content="Liitä oma tai valmentajan ohjelma tekstinä, ja salilla edellisen treenin painot ja toistot ovat valmiina. Ilmainen, ei rekisteröitymistä, tiedot omalla laitteellasi.">
+<meta property="og:image" content="https://jarkale.com/kuvat/jako.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Järkäle puhelimessa: ohjelman tuonti, treeni käynnissä ja liikkeen kehitys">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="icon-192.png?v=4">
 <link rel="preload" href="fonts/manrope-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -122,6 +133,9 @@ details.older .ver{font-size:12px;color:var(--dim);letter-spacing:.06em;text-tra
 .shots{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 16px;margin:6px -16px 0;padding:4px 16px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
 .shots::-webkit-scrollbar{display:none;}
 .shot{flex:none;width:44%;max-width:190px;scroll-snap-align:start;margin:0;}
+.shots.big .shot{width:72%;max-width:280px;}
+.shots.big .shot figcaption{font-size:15px;}
+.shots.big .shot figcaption span{font-size:13px;}
 .shot img{display:block;width:100%;height:auto;aspect-ratio:420/855;object-fit:cover;border-radius:16px;border:1px solid var(--bord);background:var(--surf2);}
 .shot figcaption{font:800 13px/1.2 Manrope,system-ui,sans-serif;margin-top:8px;color:var(--text);}
 .shot figcaption span{display:block;font-weight:500;font-size:12px;color:var(--dim);margin-top:2px;}
@@ -136,6 +150,8 @@ details.older .ver{font-size:12px;color:var(--dim);letter-spacing:.06em;text-tra
 [data-theme="light"] .final .cta{background:var(--ink);color:var(--y);}
 .steps{background:var(--surf);color:var(--text);border-radius:16px;padding:18px;margin-top:26px;text-align:left;}
 .steps .tag{margin-bottom:14px;}
+.steps-h{margin:14px 0 8px;font-size:14px;}
+.steps .tag+.steps-h{margin-top:0;}
 .step{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:14px;}
 .step:last-of-type{margin-bottom:0;}
 .step .num{flex:none;width:28px;height:28px;border-radius:6px;background:var(--y);color:var(--ink);font:800 15px/28px Manrope,system-ui,sans-serif;text-align:center;}
@@ -176,6 +192,8 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
   .ai{max-width:720px;}
   .m-only{display:none;}
   .shots{display:grid;grid-template-columns:repeat(9,1fr);gap:12px;overflow:visible;margin:10px 0 0;padding:0;}
+  .shots.big{grid-template-columns:repeat(3,1fr);gap:28px;max-width:900px;}
+  .shots.big .shot{width:auto;max-width:none;}
   .shot{width:auto;max-width:none;}
   .shot figcaption span{font-size:11px;}
   details.older{max-width:1100px;}
@@ -217,10 +235,10 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
 <!-- HERO -->
 <section class="hero">
   <div class="kicker">TREENIPÄIVÄKIRJA</div>
-  <h1><span>Ohjelma.</span><span>Sarjat.</span><span>Ennätykset.</span><span>Palautuminen.</span></h1>
-  <p class="lead">Tuo oma tai valmentajan ohjelma tekstinä ja kirjaa treenit salilla. Halutessasi myös uni, paino ja palautuminen.</p>
+  <h1><span>Oma</span><span>treeni&shy;ohjelma.</span><span>Vähemmän</span><span>näpyttelyä salilla.</span></h1>
+  <p class="lead">Liitä oma tai valmentajan ohjelma tekstinä. Edellisen treenin painot ja toistot ovat valmiina: kuittaa sarja tai muuta lukuja. Seuraa halutessasi myös unta, painoa ja palautumista.</p>
   <a class="cta" href="https://app.jarkale.com/">Avaa Järkäle <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.8 5 13.4h6.6l-1 7.8 8-10.7h-6.7z"/></svg></a>
-  <p class="hero-note">Ilmainen · Ei tiliä · Data on sinun</p>
+  <p class="hero-note">Ilmainen · Ei rekisteröitymistä · Tiedot omalla laitteellasi</p>
   <div class="stripes b"></div>
 </section>
 
@@ -252,6 +270,17 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
   <p style="margin:0">Ajastimen ääni ja värinä toimivat, kun Järkäle on auki näytöllä. Selainsovellus ei pysty hälyttämään lukitulla näytöllä.</p>
 </section>
 
+<!-- SALI KUVINA -->
+<section class="section rv">
+  <span class="tag">Näin se toimii</span>
+  <h2>Ohjelma sisään, treeni salilla, kehitys näkyviin</h2>
+  <div class="shots big">
+    <figure class="shot"><img src="kuvat/sali-tuonti.webp" alt="Ohjelman tuonnin esikatselu: kaksi treenipäivää ja liikkeet tavoitteineen" loading="lazy" width="420" height="855"><figcaption>1. Liitä ohjelma<span>teksti sellaisenaan, päivät ja tavoitteet tunnistetaan</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/sali-treeni.webp" alt="Treeni käynnissä: viime kerran luvut valmiina ja ennätysmerkki" loading="lazy" width="420" height="855"><figcaption>2. Kirjaa salilla<span>viime kerran luvut valmiina, sarja yhdellä napautuksella</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/sali-kehitys.webp" alt="Liikkeen kehitys: paras sarja, viimeksi, arvioitu 1RM ja käyrä" loading="lazy" width="420" height="855"><figcaption>3. Näe kehitys<span>paras sarja, viimeksi ja käyrä liikkeittäin</span></figcaption></figure>
+  </div>
+</section>
+
 <!-- MITEN SE TOIMII -->
 <section class="section rv">
   <span class="tag">Miten se toimii</span>
@@ -280,19 +309,6 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
     <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="8.4" width="18.8" height="7.2" rx="3.6" transform="rotate(-45 12 12)"/><path d="M10.2 10.2h.01M13.8 13.8h.01M10.2 13.8h.01M13.8 10.2h.01"/></svg> Kivut</span>
     <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="8" width="19" height="8" rx="1.6"/><path d="M6.5 8v3M10 8v4M13.5 8v3M17 8v4"/></svg> Kehon mitat</span>
     <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 3.2H6.6A1.6 1.6 0 0 0 5 4.8v14.4a1.6 1.6 0 0 0 1.6 1.6h10.8a1.6 1.6 0 0 0 1.6-1.6V7.7z"/><path d="M14.5 3.2v4.5H19M8.5 12.5h7M8.5 16h4.5"/></svg> Huomio</span>
-  </div>
-</section>
-
-<!-- UUTTA -->
-<section class="section rv" id="uutta">
-  <span class="tag">Uutta · 2.18.172 · marraskuu 2026</span>
-  <h2>Useampi ohjelma ja liikkeiden historia</h2>
-  <div class="card">
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Useampi ohjelma rinnakkain.</strong> Jos sinulla on useampi ohjelma käytössä, esimerkiksi jokainen treenipäivä omana ohjelmanaan, kaikki päivät näkyvät suoraan Treeni-välilehdellä. Ohjelmaa ei tarvitse vaihtaa ennen treeniä.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Liikkeen historia ei jakaudu.</strong> Kun kirjoitat liikkeen nimeä, Järkäle ehdottaa aiemmin tekemiäsi samankaltaisia liikkeitä. Napautus jatkaa vanhaa historiaa, vaikka kirjoittaisit nimen eri tavalla.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Väärä nimi korjautuu.</strong> Jos kirjasit sarjat väärällä liikkeellä, Vaihda liike korjaa nimen ja sarjat siirtyvät oikealle liikkeelle.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Tabletilla ja tietokoneella.</strong> Näkymä levenee näytön mukaan, ja tietokoneella valikko on vasemmassa reunassa. Kirjaa salilla puhelimella ja katso kehitystä isolta näytöltä. Puhelimessa kaikki pysyy ennallaan.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Palaute kehittäjälle.</strong> Asetusten lopussa on nappi, joka avaa sähköpostin valmiiksi osoitettuna.</span></div>
   </div>
 </section>
 
@@ -335,11 +351,17 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
   <div class="ai"><span class="price">muutama snt / kpl</span><b>Kirjallinen yhteenveto</b><p style="margin:6px 0 0;font-size:13px">Halutessasi tekoälyn kirjoittama yhteenveto valitusta jaksosta omalla API-avaimella. Maksu menee suoraan tarjoajalle ja syntyy vain, kun painat nappia.</p></div>
 </section>
 
-<!-- iPHONE -->
-<section class="section rv">
-  <span class="tag">iPhone</span>
-  <h2>Käyttö iPhonella</h2>
-  <p>Avaa Järkäle Safarissa, paina Jaa → Lisää Koti-valikkoon ja käytä sovellusta kuvakkeesta. Kotivalikon sovelluksella on iPhonessa oma tallennustilansa, joten kirjaa alusta asti kuvakkeesta tai yhdistä Google Driveen.</p>
+<!-- UUTTA -->
+<section class="section rv" id="uutta">
+  <span class="tag">Uutta · 2.18.172 · marraskuu 2026</span>
+  <h2>Useampi ohjelma ja liikkeiden historia</h2>
+  <div class="card">
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Useampi ohjelma rinnakkain.</strong> Jos sinulla on useampi ohjelma käytössä, esimerkiksi jokainen treenipäivä omana ohjelmanaan, kaikki päivät näkyvät suoraan Treeni-välilehdellä. Ohjelmaa ei tarvitse vaihtaa ennen treeniä.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Liikkeen historia ei jakaudu.</strong> Kun kirjoitat liikkeen nimeä, Järkäle ehdottaa aiemmin tekemiäsi samankaltaisia liikkeitä. Napautus jatkaa vanhaa historiaa, vaikka kirjoittaisit nimen eri tavalla.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Väärä nimi korjautuu.</strong> Jos kirjasit sarjat väärällä liikkeellä, Vaihda liike korjaa nimen ja sarjat siirtyvät oikealle liikkeelle.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Tabletilla ja tietokoneella.</strong> Näkymä levenee näytön mukaan, ja tietokoneella valikko on vasemmassa reunassa. Kirjaa salilla puhelimella ja katso kehitystä isolta näytöltä. Puhelimessa kaikki pysyy ennallaan.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Palaute kehittäjälle.</strong> Asetusten lopussa on nappi, joka avaa sähköpostin valmiiksi osoitettuna.</span></div>
+  </div>
 </section>
 
 <!-- AIEMMAT -->
@@ -434,15 +456,19 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
   <a class="cta" href="https://app.jarkale.com/">Avaa Järkäle <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.8 5 13.4h6.6l-1 7.8 8-10.7h-6.7z"/></svg></a>
   <div class="steps">
     <span class="tag">Asenna kotinäytölle</span>
-    <div class="step"><span class="num">1</span><span>Avaa linkki <strong>Chrome</strong>-selaimella</span></div>
-    <div class="step"><span class="num">2</span><span>Paina oikeassa yläkulmassa <strong>⋮</strong></span></div>
-    <div class="step"><span class="num">3</span><span>Valitse <strong>Lisää aloitusnäyttöön</strong> ja sitten <strong>Asenna</strong> (ei "Luo pikakuvake"). Asennettu sovellus päivittää kuvakkeensa itse.</span></div>
-    <div class="step"><span class="num">4</span><span>Järkäle ilmestyy kotinäytölle omana kuvakkeenaan. Jos ei näy, katso sovelluslistasta ja vedä kuvake kotinäytölle.</span></div>
-    <p class="steps-note">Ei sovelluskauppaa · Ei rekisteröitymistä · Data on sinun</p>
+    <p class="steps-h"><strong>Android (Chrome)</strong></p>
+    <div class="step"><span class="num">1</span><span>Avaa linkki <strong>Chrome</strong>-selaimella ja paina oikeassa yläkulmassa <strong>⋮</strong></span></div>
+    <div class="step"><span class="num">2</span><span>Valitse <strong>Lisää aloitusnäyttöön</strong> ja sitten <strong>Asenna</strong> (ei "Luo pikakuvake").</span></div>
+    <div class="step"><span class="num">3</span><span>Järkäle ilmestyy kotinäytölle omana kuvakkeenaan. Jos ei näy, katso sovelluslistasta.</span></div>
+    <p class="steps-h"><strong>iPhone ja iPad (Safari)</strong></p>
+    <div class="step"><span class="num">1</span><span>Avaa linkki <strong>Safarilla</strong> ja paina <strong>Jaa</strong>-kuvaketta</span></div>
+    <div class="step"><span class="num">2</span><span>Valitse <strong>Lisää Koti-valikkoon</strong>.</span></div>
+    <div class="step"><span class="num">3</span><span>Kirjaa alusta asti kuvakkeesta: Koti-valikon sovelluksella on oma tallennustilansa, eri kuin Safarilla. Yhdistä Google Driveen, niin tiedot ovat tallessa.</span></div>
+    <p class="steps-note">Ei sovelluskauppaa · Ei rekisteröitymistä · Tiedot omalla laitteellasi</p>
   </div>
 </section>
 
-<footer><b>Järkäle</b><span>Treenipäiväkirja · 2026</span><span style="flex-basis:100%;height:0"></span><span>Tekijä Aku Mykkänen</span><span>·</span><a href="tietosuoja.html">Tietosuoja</a></footer>
+<footer><b>Järkäle</b><span>Treenipäiväkirja · 2026</span><span style="flex-basis:100%;height:0"></span><span>Tekijä Aku Mykkänen</span><span>·</span><a href="mailto:tuki@jarkale.com?subject=Palaute%20J%C3%A4rk%C3%A4leest%C3%A4">Palaute: tuki@jarkale.com</a><span>·</span><a href="tietosuoja.html">Tietosuoja</a></footer>
 </div>
 
 <script>
