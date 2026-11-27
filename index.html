@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Järkäle – treenipäiväkirja ja kehon seuranta</title>
-<meta name="description" content="Järkäle on ilmainen treenipäiväkirja ja kehon seuranta. Salilla viime kerran luvut valmiina, ja samassa paikassa aamupaino, kehon mitat, rasvaprosentti ja kehityskuvat. Trendit kertovat, mikä muuttui. Ei tiliä, tiedot omalla laitteellasi.">
+<meta name="description" content="Ilmainen treenipäiväkirja selaimessa. Kirjaa salitreenit, seuraa painoa ja kehon mittoja sekä vertaa kehityskuvia. Ei rekisteröitymistä.">
 <link rel="canonical" href="https://jarkale.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fi_FI">
 <meta property="og:site_name" content="Järkäle">
 <meta property="og:url" content="https://jarkale.com/">
-<meta property="og:title" content="Järkäle – treeni, paino, mitat ja kehityskuvat samassa paikassa">
-<meta property="og:description" content="Salitreeni viime kerran luvuilla, aamupaino, kehon mitat ja kehityskuvat viikoittain. Ilmainen, ei rekisteröitymistä, tiedot omalla laitteellasi.">
+<meta property="og:title" content="Järkäle – treenipäiväkirja ja kehon seuranta">
+<meta property="og:description" content="Ilmainen treenipäiväkirja selaimessa. Kirjaa salitreenit, seuraa painoa ja kehon mittoja sekä vertaa kehityskuvia. Ei rekisteröitymistä.">
 <meta property="og:image" content="https://jarkale.com/kuvat/jako.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -218,6 +218,7 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
 .rv{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
 .rv.in{opacity:1;transform:none;}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}.hero h1 span{opacity:1;transform:none;filter:none;}.rv{opacity:1;transform:none;}.stamp{opacity:.9;transform:rotate(-12deg);}}
+.older.guide{margin-top:14px;} .older.guide .sub p{font-size:14px;}
 </style>
 </head>
 <body>
@@ -235,10 +236,10 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
 <!-- HERO -->
 <section class="hero">
   <div class="kicker">TREENIPÄIVÄKIRJA JA KEHON SEURANTA</div>
-  <h1><span>Treeni.</span><span>Paino.</span><span>Mitat.</span><span>Kehitys näkyy.</span></h1>
-  <p class="lead">Kirjaa salitreeni viime kerran luvut valmiina. Seuraa samassa paikassa aamupainoa, kehon mittoja ja kehityskuvia. Trendit kertovat, mikä muuttui.</p>
+  <h1><span>Treenit,</span><span>paino ja mitat</span><span>samassa</span><span>paikassa.</span></h1>
+  <p class="lead">Kirjaa salitreenit ja katso, mitä teit viimeksi. Seuraa painoa, kehon mittoja ja kehityskuvia. Valitse käyttöön ne seurannat, joita tarvitset.</p>
   <a class="cta" href="https://app.jarkale.com/">Avaa Järkäle <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.8 5 13.4h6.6l-1 7.8 8-10.7h-6.7z"/></svg></a>
-  <p class="hero-note">Ilmainen · Ei rekisteröitymistä · Tiedot omalla laitteellasi</p>
+  <p class="hero-note">Ilmainen · Ei rekisteröitymistä · Toimii selaimessa</p>
   <div class="stripes b"></div>
 </section>
 
@@ -251,86 +252,88 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
     <div class="d-row" data-r="2"><span class="n">3</span><div class="d-f kg"><i>−</i><span class="v">80</span><i>+</i><span class="d-pr">Ennätys</span></div><div class="d-f">7</div><div class="d-ck"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></div></div>
     <div class="stamp"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="gst" d="M50,50 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0"/></defs><circle class="bg" cx="50" cy="50" r="48"/><circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="3.2"/><circle cx="50" cy="50" r="27" fill="none" stroke="currentColor" stroke-width="1.6"/><text font-size="11" font-weight="800" fill="currentColor" font-family="system-ui,sans-serif"><textPath href="#gst" textLength="216" lengthAdjust="spacing">JÄRKÄLE · TALLENNETTU · </textPath></text><path d="M41 44 l6 6 l12 -12" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="50" y="64" text-anchor="middle" font-size="11" font-weight="800" fill="currentColor" font-family="system-ui,sans-serif">PENKKI</text></svg></div>
   </div>
-  <p class="demo-cap">Edellinen kerta harmaana, yksi napautus kuittaa. + nostaa painoa. Tallennus lyö leiman.</p>
+  <p class="demo-cap">Viime kerran painot ja toistot näkyvät valmiina. Kuittaa tehty sarja napauttamalla tai muuta lukuja − ja + -painikkeilla.</p>
 </div>
 <div class="stripes b top-stripes"></div>
 </div>
 
-<!-- YLEISKATSAUS -->
+<!-- MITÄ SEURAAT -->
 <section class="section rv" id="mita">
   <span class="tag">Mitä seuraat</span>
-  <h2>Sali ja keho samassa sovelluksessa</h2>
-  <p>Valitse, mitä seuraat. Moni käyttää molempia: treenit kirjataan salilla, paino aamulla ja mitat ja kuvat kerran viikossa.</p>
+  <h2>Mitä haluat kirjata?</h2>
+  <p>Voit käyttää Järkälettä treenipäiväkirjana, kehon seurantaan tai molempiin.</p>
   <div class="grid">
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 7v10M17.5 7v10M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/></svg></div><b>Salitreeni</b><span>Oma tai valmentajan ohjelma, viime kerran luvut valmiina, ennätykset ja kehitys liikkeittäin</span></div>
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="16" rx="4"/><path d="M8 10.5a4.6 4.6 0 0 1 8 0"/><path d="M12 11.5l1.8-2.6"/></svg></div><b>Paino</b><span>Aamupaino, 7 päivän keskiarvo ja suunta kiloina viikossa, halutessasi tavoitepaino</span></div>
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="8" rx="1.5"/><path d="M7 8v3M11 8v4M15 8v3M19 8v2"/></svg></div><b>Mitat</b><span>Kehon ympärysmitat, rasvaprosentti mitoista tai ihopoimuista ja FFMI, muutos edelliseen mittaukseen</span></div>
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5h3.2l1.6-2.5h6.4l1.6 2.5H20v10.5H4z"/><circle cx="12" cy="13.5" r="3.4"/></svg></div><b>Kehityskuvat</b><span>Kuvat viikoittain edestä, sivulta ja takaa, viikon painon keskiarvo vieressä ja kahden viikon vertailu</span></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 7v10M17.5 7v10M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/></svg></div><b>Salitreeni</b><span>Treeniohjelmat, sarjat, painot ja toistot. Aiemmat tulokset kulkevat mukana seuraavaan treeniin.</span></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="16" rx="4"/><path d="M8 10.5a4.6 4.6 0 0 1 8 0"/><path d="M12 11.5l1.8-2.6"/></svg></div><b>Paino</b><span>Painokirjaukset, seitsemän päivän keskiarvo ja painon muutossuunta. Voit asettaa myös tavoitepainon.</span></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="8" rx="1.5"/><path d="M7 8v3M11 8v4M15 8v3M19 8v2"/></svg></div><b>Kehon mitat</b><span>Ympärysmitat ja niiden muutokset. Halutessasi myös arvio rasvaprosentista ja rasvattoman massan indeksi eli FFMI.</span></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5h3.2l1.6-2.5h6.4l1.6 2.5H20v10.5H4z"/><circle cx="12" cy="13.5" r="3.4"/></svg></div><b>Kehityskuvat</b><span>Kuvat viikoittain ja kahden viikon vertailu rinnakkain.</span></div>
   </div>
 </section>
 
-<!-- SALI -->
-<section class="section rv">
-  <span class="tag">Sali</span>
-  <h2>Oma ohjelma sisään, kirjaus nopeaksi</h2>
+<!-- SALITREENI -->
+<section class="section rv" id="sali">
+  <span class="tag">Salitreeni</span>
+  <h2>Oma ohjelma mukaan salille.</h2>
   <div class="why">
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 3.2H6.6A1.6 1.6 0 0 0 5 4.8v14.4a1.6 1.6 0 0 0 1.6 1.6h10.8a1.6 1.6 0 0 0 1.6-1.6V7.7z"/><path d="M14.5 3.2v4.5H19M8.5 12.5h7M8.5 16h4.5"/></svg></div><div><b>Ohjelma sisään tekstinä</b><span>Liitä valmentajan ohjelma Wordista, muistiinpanoista tai viestistä, tai Strongin Jaa treeni -teksti. Järkäle tunnistaa treenipäivät, sarjat, supersarjat, rest-pause- ja pudotussarjat sekä saman liikkeen eri toistotavoitteet (esim. 2&nbsp;×&nbsp;6–8 + 1&nbsp;×&nbsp;10–12 tai 3&nbsp;×&nbsp;12/10/8) ja vihkomerkinnät, myös nousevat sarjat (140x5x3 tai 150x3, 160x2, 170x1), ja ohittaa ohjetekstit. Viisijakoinen ohjelma menee sisään alle minuutissa. Ohjelma kuvana tai paperilla? Pyydä tekoälyä kirjoittamaan kuvasta teksti. Ei vielä ohjelmaa? Aloita treeni ilman ohjelmaa tai pyydä tekoälyä tekemään ohjelma.</span></div></div>
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div><div><b>Historia Strongista ja Hevystä</b><span>Tuo vanhat treenit vientitiedostosta: Treeni → Asetukset → Tuo treenihistoria. Ennätykset ja liikkeiden kehitys jatkuvat siitä, mihin jäit.</span></div></div>
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.8 5 13.4h6.6l-1 7.8 8-10.7h-6.7z"/></svg></div><div><b>Sarja yhdellä napautuksella</b><span>Edellisen kerran kilot ja toistot ovat valmiina harmaina. Jos teit saman, kuittaa. Painoa ja toistoja säädät − / + -napeilla avaamatta näppäimistöä. Halutessasi koettu rasittavuus RPE- tai RIR-asteikolla.</span></div></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 3.2H6.6A1.6 1.6 0 0 0 5 4.8v14.4a1.6 1.6 0 0 0 1.6 1.6h10.8a1.6 1.6 0 0 0 1.6-1.6V7.7z"/><path d="M14.5 3.2v4.5H19M8.5 12.5h7M8.5 16h4.5"/></svg></div><div><b>Ohjelman lisääminen</b><span>Liitä ohjelma tekstinä esimerkiksi valmentajan viestistä, Wordista tai muistiinpanoista. Järkäle tunnistaa treenipäivät, liikkeet ja sarjatavoitteet. Tarkista esikatselu ennen tallennusta. Voit käyttää myös supersarjoja, pudotussarjoja, rest-pause-sarjoja ja liikkeen eri toistotavoitteita.</span></div></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.8 5 13.4h6.6l-1 7.8 8-10.7h-6.7z"/></svg></div><div><b>Kirjaaminen treenin aikana</b><span>Edellisen treenin painot ja toistot näkyvät sarjojen pohjalla. Jos teet saman tuloksen, kuittaa sarja napauttamalla. Muuta lukuja − ja + -painikkeilla. Halutessasi voit kirjata myös sarjan rasittavuuden RPE- tai RIR-asteikolla.</span></div></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 7v10M17.5 7v10M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/></svg></div><div><b>Treeni ilman ohjelmaa</b><span>Aloita tyhjä treeni ja lisää liikkeet sitä mukaa kuin teet. Järkäle ehdottaa aiemmin käyttämiäsi liikkeitä ja näyttää niiden viime kerran tulokset. Voit tallentaa tehdyn treenin myöhemmin ohjelmaksi.</span></div></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></div><div><b>Vanha treenihistoria mukaan</b><span>Tuo aiemmat treenisi Strongin tai Hevyn vientitiedostosta. Näet vanhat ja uudet tulokset samassa historiassa.</span></div></div>
   </div>
-  <p>Treenit ovat käytössä, kun valitset aloituksessa <strong>Kirjata treenejä</strong> tai <strong>Molempia</strong>. Myöhemmin: <strong>Asetukset → Treenit, cardio ja kaudet → Saliohjelmat ja treeniseuranta.</strong></p>
-  <p>Ajastin, ääni, värinä, painon askel, rasittavuuden kirjaus ja historian tuonti: <strong>Treeni → Asetukset.</strong></p>
-  <p style="margin:0">Ajastimen ääni ja värinä toimivat, kun Järkäle on auki näytöllä. Selainsovellus ei pysty hälyttämään lukitulla näytöllä.</p>
+  <details class="older guide"><summary>Treenin käyttöohjeet</summary>
+  <div class="sub">
+    <p><strong>Treeniseurannan käyttöönotto:</strong> valitse aloituksessa <strong>Kirjata treenejä</strong> tai <strong>Molempia</strong>. Myöhemmin: <strong>Asetukset → Treenit, cardio ja kaudet → Saliohjelmat ja treeniseuranta</strong>.</p>
+    <p><strong>Ohjelman tuonti:</strong> <strong>Treeni → + Uusi ohjelma → Tuo tekstistä</strong>. Liitä teksti sellaisenaan. Myös taulukko ja Strongin Jaa treeni -teksti käyvät. Vihkomerkinnät tunnistetaan: <strong>Kyykky 140x5x3</strong> on kolme viiden toiston sarjaa 140 kilolla, ja nousevat sarjat kuten <strong>150x3, 160x2, 170x1</strong> saavat oman painonsa. Prosentit (5x5 75 %) jäävät ohjeeksi. Jos ohjelma on kuvana tai paperilla, voit pyytää tekoälyä kirjoittamaan sen tekstiksi.</p>
+    <p><strong>Treeni ilman ohjelmaa:</strong> Treeni-välilehdeltä <strong>+ Treeni ilman ohjelmaa</strong>. Treenin päivän voi vaihtaa myös menneeseen.</p>
+    <p><strong>Historian tuonti:</strong> <strong>Treeni → Asetukset → Tuo treenihistoria</strong> ja Strongin tai Hevyn vientitiedosto. Liikkeet voi yhdistää Järkäleen liikkeisiin ennen tuontia, ja tuonnin voi perua.</p>
+    <p><strong>Treeniasetukset:</strong> taukoajastin, ääni, värinä, painon askel ja rasittavuuden kirjaus löytyvät kohdasta <strong>Treeni → Asetukset</strong>.</p>
+    <p style="margin:0">Ajastimen ääni ja värinä toimivat, kun Järkäle on avoinna näytöllä. Hälytys ei toimi näytön ollessa lukittuna.</p>
+  </div>
+  </details>
 </section>
 
-<!-- KEHO -->
+<!-- KEHON SEURANTA -->
 <section class="section rv" id="keho">
-  <span class="tag">Keho</span>
-  <h2>Paino, mitat ja kehityskuvat yhdessä paikassa</h2>
+  <span class="tag">Kehon seuranta</span>
+  <h2>Seuraa muutoksia painossa, mitoissa ja kuvissa.</h2>
   <div class="why">
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="16" rx="4"/><path d="M8 10.5a4.6 4.6 0 0 1 8 0"/><path d="M12 11.5l1.8-2.6"/></svg></div><div><b>Aamupaino ja suunta</b><span>Yksi luku aamulla. Järkäle laskee 7 päivän keskiarvon ja näyttää suunnan kiloina viikossa, joten päivittäinen heilunta ei sotke kuvaa. Halutessasi tavoitepaino ja matka siihen.</span></div></div>
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="8" rx="1.5"/><path d="M7 8v3M11 8v4M15 8v3M19 8v2"/></svg></div><div><b>Mitat ja rasvaprosentti</b><span>Vyötärö kolmesta kohdasta, kaula, lantio, rinta, olkavarret, reidet ja pohkeet. Rasvaprosentti lasketaan mitoista (US&nbsp;Navy) tai ihopoimuista (Jackson–Pollock), ja FFMI kertoo rasvattoman massan. Jokaisessa mittauksessa näkyy muutos edelliseen.</span></div></div>
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5h3.2l1.6-2.5h6.4l1.6 2.5H20v10.5H4z"/><circle cx="12" cy="13.5" r="3.4"/></svg></div><div><b>Kehityskuvat</b><span>Ota kuvat puhelimen kameralla esimerkiksi kerran viikossa ja lisää ne galleriasta. Kuvat järjestyvät viikoittain aamupainon keskiarvon kanssa, ja kahta viikkoa voi verrata rinnakkain samasta kulmasta. Kuvat ovat vain puhelimessasi.</span></div></div>
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16.5l6-6 4 4 8-8"/><path d="M15.2 6.5H21v5.8"/></svg></div><div><b>Mikä muuttui</b><span>Trendit kokoavat jakson yhteen: ylimpänä selvät muutokset edelliseen jaksoon, sitten oma kortti painolle, unelle, treenille ja muulle seuraamallesi. Ei pisteitä eikä neuvoja, vain omat lukusi.</span></div></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="16" rx="4"/><path d="M8 10.5a4.6 4.6 0 0 1 8 0"/><path d="M12 11.5l1.8-2.6"/></svg></div><div><b>Paino</b><span>Kirjaa paino ja seuraa seitsemän päivän keskiarvoa. Keskiarvosta näet painon suunnan yksittäisiä punnituksia helpommin. Halutessasi voit lisätä tavoitepainon.</span></div></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="8" rx="1.5"/><path d="M7 8v3M11 8v4M15 8v3M19 8v2"/></svg></div><div><b>Kehon mitat</b><span>Tallenna esimerkiksi vyötärön, rinnan, käsivarsien ja reisien ympärysmitat. Näet muutoksen edelliseen mittaukseen ja seurannan alkuun. Rasvaprosentista saat laskennallisen arvion ympärysmitoilla tai ihopoimumittauksilla. FFMI kuvaa rasvatonta massaa suhteessa pituuteen. Arviot riippuvat käytetystä menetelmästä ja mittausten tarkkuudesta.</span></div></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5h3.2l1.6-2.5h6.4l1.6 2.5H20v10.5H4z"/><circle cx="12" cy="13.5" r="3.4"/></svg></div><div><b>Kehityskuvat</b><span>Lisää kuvat puhelimen galleriasta esimerkiksi edestä, sivulta ja takaa. Kuvat järjestyvät viikoittain, ja voit verrata kahta viikkoa rinnakkain. Kuvien yhteydessä näkyy viikon painon keskiarvo, kun painokirjauksia on. Kehityskuvat säilyvät laitteellasi. Ne eivät sisälly Google Drive -varmuuskopioon, vaan ne tallennetaan erikseen tiedostoon.</span></div></div>
+    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16.5l6-6 4 4 8-8"/><path d="M15.2 6.5H21v5.8"/></svg></div><div><b>Trendit</b><span>Katso valitsemasi jakson kirjaukset ja vertaa niitä edelliseen jaksoon. Jokaisella seurannalla on oma näkymänsä, jossa näkyvät keskiarvo, käyrä ja kirjausten määrä.</span></div></div>
   </div>
-  <p>Paino ja mitat otetaan käyttöön aloituksessa tai myöhemmin kohdasta <strong>Asetukset → Mitä seuraat</strong>. Kehityskuvat samasta paikasta.</p>
   <div class="shots big">
-    <figure class="shot"><img src="kuvat/keho-mitat.webp" alt="Mitat-sivun kokonaiskuva: vyötärö, rasvaprosentti ja FFMI sekä muutos edelliseen mittaukseen" loading="lazy" width="420" height="855"><figcaption>Mitat<span>muutos edelliseen ja alusta, rasvaprosentti ja FFMI</span></figcaption></figure>
-    <figure class="shot"><img src="kuvat/keho-kuvat.webp" alt="Kehityskuvat: kahden viikon vertailu rinnakkain ja viikon kuvat painon keskiarvon kanssa" loading="lazy" width="420" height="855"><figcaption>Kehityskuvat<span>viikoittain, kaksi viikkoa rinnakkain</span></figcaption></figure>
-    <figure class="shot"><img src="kuvat/keho-trendit.webp" alt="Trendit: Mikä muuttui -kortti ja salitreenien ennätykset" loading="lazy" width="420" height="855"><figcaption>Mikä muuttui<span>jakson selvät muutokset ensin</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/keho-mitat.webp" alt="Mitat-sivun kokonaiskuva: vyötärö, rasvaprosentti ja FFMI sekä muutos edelliseen mittaukseen" loading="lazy" width="420" height="855"><figcaption>Mitat<span>muutokset edelliseen mittaukseen ja seurannan alkuun</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/keho-kuvat.webp" alt="Kehityskuvat: kahden viikon vertailu rinnakkain ja viikon kuvat painon keskiarvon kanssa" loading="lazy" width="420" height="855"><figcaption>Kehityskuvat<span>vertaa kahta viikkoa rinnakkain</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/keho-trendit.webp" alt="Trendit: muutokset edelliseen jaksoon ja salitreenien ennätykset" loading="lazy" width="420" height="855"><figcaption>Trendit<span>tarkastele muutoksia valitulla ajanjaksolla</span></figcaption></figure>
   </div>
+  <details class="older guide"><summary>Kehon seurannan käyttöohjeet</summary>
+  <div class="sub">
+    <p><strong>Paino, mitat ja kehityskuvat käyttöön:</strong> aloituksessa tai myöhemmin kohdasta <strong>Asetukset → Mitä seuraat</strong>.</p>
+    <p><strong>Tavoitepaino:</strong> <strong>Asetukset → Tavoitteet</strong>.</p>
+    <p><strong>Rasvaprosentin ja FFMI:n laskenta</strong> tarvitsee sukupuolen ja pituuden: <strong>Asetukset → Profiili</strong>. Laskentatavat ja yleiset viiterajat: <strong>Mitat → Mistä luvut tulevat?</strong></p>
+    <p style="margin:0"><strong>Kehityskuvien tallennus ja palautus:</strong> <strong>Asetukset → Varmuuskopio ja Drive → Kehityskuvat → Tallenna kuvat</strong> tekee kuvista yhden tiedoston, ja samasta kohdasta <strong>Palauta kuvat</strong> tuo ne takaisin.</p>
+  </div>
+  </details>
 </section>
 
-<!-- SALI KUVINA -->
+<!-- KOLME VAIHETTA -->
 <section class="section rv">
-  <span class="tag">Näin se toimii</span>
-  <h2>Ohjelma sisään, treeni salilla, kehitys näkyviin</h2>
+  <span class="tag">Näin pääset alkuun</span>
+  <h2>Ohjelman lisäämisestä ensimmäiseen treeniin.</h2>
   <div class="shots big">
-    <figure class="shot"><img src="kuvat/sali-tuonti.webp" alt="Ohjelman tuonnin esikatselu: kaksi treenipäivää ja liikkeet tavoitteineen" loading="lazy" width="420" height="855"><figcaption>1. Liitä ohjelma<span>teksti sellaisenaan, päivät ja tavoitteet tunnistetaan</span></figcaption></figure>
-    <figure class="shot"><img src="kuvat/sali-treeni.webp" alt="Treeni käynnissä: viime kerran luvut valmiina ja ennätysmerkki" loading="lazy" width="420" height="855"><figcaption>2. Kirjaa salilla<span>viime kerran luvut valmiina, sarja yhdellä napautuksella</span></figcaption></figure>
-    <figure class="shot"><img src="kuvat/sali-kehitys.webp" alt="Liikkeen kehitys: paras sarja, viimeksi, arvioitu 1RM ja käyrä" loading="lazy" width="420" height="855"><figcaption>3. Näe kehitys<span>paras sarja, viimeksi ja käyrä liikkeittäin</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/sali-tuonti.webp" alt="Ohjelman tuonnin esikatselu: kaksi treenipäivää ja liikkeet tavoitteineen" loading="lazy" width="420" height="855"><figcaption>1. Lisää ohjelma<span>Liitä ohjelma tekstinä ja tarkista tunnistetut päivät, liikkeet ja sarjat.</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/sali-treeni.webp" alt="Treeni käynnissä: viime kerran luvut valmiina ja ennätysmerkki" loading="lazy" width="420" height="855"><figcaption>2. Kirjaa treeni<span>Tallenna tekemäsi painot ja toistot. Seuraavalla kerralla ne ovat valmiina pohjalla.</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/sali-kehitys.webp" alt="Liikkeen kehitys: paras sarja, viimeksi, arvioitu 1RM ja käyrä" loading="lazy" width="420" height="855"><figcaption>3. Katso aiemmat tulokset<span>Avaa liikkeen historia ja vertaa sarjoja eri treenikerroilta.</span></figcaption></figure>
   </div>
 </section>
 
-<!-- MITEN SE TOIMII -->
+<!-- OMAT SEURANNAT -->
 <section class="section rv">
-  <span class="tag">Miten se toimii</span>
-  <h2>Vain ne kentät, jotka valitset</h2>
-  <p>Useimmat seurantasovellukset näyttävät kymmeniä kenttiä, joita et koskaan täytä. Järkäleessä valitset asetuksista, mitä seuraat, ja kirjausnäkymässä näkyvät vain ne. Painon ja unen seuraaja näkee kaksi kenttää. Kaiken seuraaja näkee kaiken.</p>
-</section>
-
-<!-- MITÄ SEURATAAN -->
-<section class="section rv">
-  <span class="tag">Mitä voit seurata</span>
-  <h2>Ja kaikki muu, mitä haluat seurata</h2>
-  <p>Älylaite mittaa sykkeen ja unen. Sitä se ei tiedä, miltä sinusta tuntuu – sen kirjaat itse yhdellä numerolla.</p>
-  <div class="grid">
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4" width="17" height="16" rx="4"/><path d="M8 10.5a4.6 4.6 0 0 1 8 0"/><path d="M12 11.5l1.8-2.6"/></svg></div><b>Paino ja keho</b><span>Aamupaino, 7 päivän keskiarvo, kehon mitat, rasvaprosentti mitoista (US&nbsp;Navy) tai ihopoimuista (Jackson–Pollock) ja FFMI</span></div>
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19.5 14.6A7.8 7.8 0 1 1 9.4 4.5a6.2 6.2 0 0 0 10.1 10.1z"/></svg></div><b>Uni ja palautuminen</b><span>Tuntimäärä ja oma tuntemus 1–5</span></div>
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 7v10M17.5 7v10M3.5 9.5v5M20.5 9.5v5M6.5 12h11"/></svg></div><b>Sali</b><span>Oma ohjelma, sarjakirjaus, ennätykset ja kehityskäyrät</span></div>
-    <div class="feat"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16.5l6-6 4 4 8-8"/><path d="M15.2 6.5H21v5.8"/></svg></div><b>Trendit</b><span>Mikä muuttui edelliseen jaksoon, ja jokaiselle seurattavalle oma kortti käyrineen</span></div>
-    <div class="feat span2"><div class="fi"><svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.8 5 13.4h6.6l-1 7.8 8-10.7h-6.7z"/></svg></div><b>Oma fiilis</b><span>Palautumisen tunne ja yleinen vire numerona. Vain sinä tiedät, miltä tänään tuntuu – ei mikään laite.</span></div>
-  </div>
+  <span class="tag">Omat seurannat</span>
+  <h2>Valitse, mitä kirjausnäkymässä näkyy.</h2>
+  <p>Ota käyttöön tarvitsemasi seurannat ja jätä muut pois. Voit muuttaa valintoja myöhemmin asetuksista.</p>
+  <p>Painon ja treenin lisäksi voit kirjata esimerkiksi unen määrää, omaa virettä ja palautumisen tunnetta.</p>
   <div class="pills">
     <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 8.8c0 5-8.4 10.7-8.4 10.7S3.6 13.8 3.6 8.8A4.3 4.3 0 0 1 12 6.6a4.3 4.3 0 0 1 8.4 2.2z"/><path d="M6.5 12.2h2.7l1.4-2.2 2.3 4.4 1.4-2.2h3.2"/></svg> Verenpaine</span>
     <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.2s6 6.4 6 10.8a6 6 0 0 1-12 0C6 9.6 12 3.2 12 3.2z"/><path d="M9.3 14.4a2.8 2.8 0 0 0 2.4 2.6"/></svg> Verensokeri</span>
@@ -338,68 +341,79 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
     <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="2.3"/><path d="M12 9.7c-1.6-2.6-1.6-4.6 0-6.2 1.6 1.6 1.6 3.6 0 6.2M14.3 12c2.6-1.6 4.6-1.6 6.2 0-1.6 1.6-3.6 1.6-6.2 0M12 14.3c1.6 2.6 1.6 4.6 0 6.2-1.6-1.6-1.6-3.6 0-6.2M9.7 12c-2.6 1.6-4.6 1.6-6.2 0 1.6-1.6 3.6-1.6 6.2 0"/></svg> Kuukautiskierto</span>
     <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="9" width="11.5" height="6" rx="3"/><path d="M8.25 9v6"/><circle cx="17.5" cy="12" r="3.8"/><path d="M14.9 14.6l5.2-5.2"/></svg> Lääkkeet</span>
     <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.6" y="8.4" width="18.8" height="7.2" rx="3.6" transform="rotate(-45 12 12)"/><path d="M10.2 10.2h.01M13.8 13.8h.01M10.2 13.8h.01M13.8 10.2h.01"/></svg> Kivut</span>
-    <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="8" width="19" height="8" rx="1.6"/><path d="M6.5 8v3M10 8v4M13.5 8v3M17 8v4"/></svg> Kehon mitat</span>
-    <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 3.2H6.6A1.6 1.6 0 0 0 5 4.8v14.4a1.6 1.6 0 0 0 1.6 1.6h10.8a1.6 1.6 0 0 0 1.6-1.6V7.7z"/><path d="M14.5 3.2v4.5H19M8.5 12.5h7M8.5 16h4.5"/></svg> Huomio</span>
+    <span class="pill"><svg class="ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 3.2H6.6A1.6 1.6 0 0 0 5 4.8v14.4a1.6 1.6 0 0 0 1.6 1.6h10.8a1.6 1.6 0 0 0 1.6-1.6V7.7z"/><path d="M14.5 3.2v4.5H19M8.5 12.5h7M8.5 16h4.5"/></svg> Vapaa huomio</span>
   </div>
 </section>
 
-<!-- TEEMAT -->
+<!-- ULKOASU -->
 <section class="section rv">
-  <span class="tag">Teemat</span>
-  <h2>Yhdeksän ilmettä</h2>
-  <p><span class="m-only">Pyyhkäise ja katso. </span>Jokaisessa on vaalea ja tumma versio sekä oma käynnistysanimaatio. Vaihto: <strong>Asetukset → Ulkoasu.</strong> Samasta kohdasta valitset myös <strong>tekstin koon</strong>: Normaali, Iso tai Järkäle.</p>
+  <span class="tag">Ulkoasu</span>
+  <h2>Valitse yhdeksästä teemasta.</h2>
+  <p>Kaikissa teemoissa on vaalea ja tumma versio. Voit vaihtaa myös tekstin kokoa.</p>
   <div class="shots">
-    <figure class="shot"><img src="kuvat/teema-ampiainen.webp" alt="Järkäle Järkäle-teemassa" loading="lazy" width="420" height="855"><figcaption>Järkäle<span>keltamusta oletus</span></figcaption></figure>
-    <figure class="shot"><img src="kuvat/teema-kaurapuuro.webp" alt="Järkäle Kaurapuuro-teemassa" loading="lazy" width="420" height="855"><figcaption>Kaurapuuro<span>lämmin ja rauhallinen</span></figcaption></figure>
-    <figure class="shot"><img src="kuvat/teema-lasi.webp" alt="Järkäle Lasi-teemassa" loading="lazy" width="420" height="855"><figcaption>Lasi<span>huurrettu lasi</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-ampiainen.webp" alt="Järkäle Järkäle-teemassa" loading="lazy" width="420" height="855"><figcaption>Järkäle<span>keltainen ja musta</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-kaurapuuro.webp" alt="Järkäle Kaurapuuro-teemassa" loading="lazy" width="420" height="855"><figcaption>Kaurapuuro<span>lämpimät, hillityt sävyt</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-lasi.webp" alt="Järkäle Lasi-teemassa" loading="lazy" width="420" height="855"><figcaption>Lasi<span>läpikuultavat pinnat</span></figcaption></figure>
     <figure class="shot"><img src="kuvat/teema-magnesium.webp" alt="Järkäle Magnesium-teemassa" loading="lazy" width="420" height="855"><figcaption>Magnesium<span>mustavalkoinen</span></figcaption></figure>
-    <figure class="shot"><img src="kuvat/teema-kuusnelonen.webp" alt="Järkäle Kuusnelonen-teemassa" loading="lazy" width="420" height="855"><figcaption>Kuusnelonen<span>80-luvun kotitietokone</span></figcaption></figure>
-    <figure class="shot"><img src="kuvat/teema-tekstitv.webp" alt="Järkäle Teksti-TV-teemassa" loading="lazy" width="420" height="855"><figcaption>Teksti-TV<span>sivu 100</span></figcaption></figure>
-    <figure class="shot"><img src="kuvat/teema-manageri.webp" alt="Järkäle Manageri-teemassa" loading="lazy" width="420" height="855"><figcaption>Manageri<span>90-luvun manageripeli</span></figcaption></figure>
-    <figure class="shot"><img src="kuvat/teema-soitin.webp" alt="Järkäle Soitin-teemassa" loading="lazy" width="420" height="855"><figcaption>Soitin<span>metalli ja vihreä LCD</span></figcaption></figure>
-    <figure class="shot"><img src="kuvat/teema-fosfori.webp" alt="Järkäle Fosfori-teemassa" loading="lazy" width="420" height="855"><figcaption>Fosfori<span>vihreä kuvaputki</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-kuusnelonen.webp" alt="Järkäle Kuusnelonen-teemassa" loading="lazy" width="420" height="855"><figcaption>Kuusnelonen<span>80-luvun kotitietokoneen tyyli</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-tekstitv.webp" alt="Järkäle Teksti-TV-teemassa" loading="lazy" width="420" height="855"><figcaption>Teksti-TV<span>Teksti-TV:n värit ja kirjaimet</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-manageri.webp" alt="Järkäle Manageri-teemassa" loading="lazy" width="420" height="855"><figcaption>Manageri<span>90-luvun manageripelien tyyli</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-soitin.webp" alt="Järkäle Soitin-teemassa" loading="lazy" width="420" height="855"><figcaption>Soitin<span>metallipinta ja vihreä LCD-näyttö</span></figcaption></figure>
+    <figure class="shot"><img src="kuvat/teema-fosfori.webp" alt="Järkäle Fosfori-teemassa" loading="lazy" width="420" height="855"><figcaption>Fosfori<span>vihreä teksti tummalla pohjalla</span></figcaption></figure>
   </div>
 </section>
 
-<!-- DRIVE -->
+<!-- OMAT TIEDOT -->
 <section class="section rv">
-  <span class="tag">Varmuuskopio</span>
-  <h2>Tiedot tallessa omassa Drivessa</h2>
-  <p>Kun yhdistät Järkäleen Google Driveen, kirjaukset, mitat ja treenit tallentuvat omaan Driveesi. Ne säilyvät, vaikka puhelin vaihtuisi.</p>
-  <div class="card">
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Käyttöönotto:</strong> Asetukset → Yhdistä Google Driveen → valitse tili → hyväksy lupa. Googlen ruudussa nimenä näkyy app.jarkale.com.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Vain sinun.</strong> Tiedot menevät Driven piilotettuun sovelluskansioon. Kukaan muu ei näe niitä, ei myöskään sovelluksen tekijä.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Uusi puhelin:</strong> avaa Järkäle, yhdistä samalla Google-tilillä, ja tiedot palaavat.</span></div>
+  <span class="tag">Omat tiedot</span>
+  <h2>Tiedot laitteellasi. Varmuuskopio omassa Drivessa.</h2>
+  <p>Järkäle tallentaa kirjaukset käyttämällesi laitteelle. Voit yhdistää oman Google Drivesi, jolloin kirjaukset, kehon mitat ja treenit varmuuskopioituvat sinne.</p>
+  <p>Kun vaihdat laitetta, yhdistä Järkäle samaan Google-tiliin palauttaaksesi tiedot.</p>
+  <p>Kehityskuvat tallennetaan erikseen tiedostoon. Ne eivät sisälly Drive-varmuuskopioon.</p>
+  <p><a href="tietosuoja.html">Lue tietosuojasta</a></p>
+  <details class="older guide"><summary>Google Driven yhdistäminen</summary>
+  <div class="sub">
+    <p><strong>Käyttöönotto:</strong> Asetukset → Varmuuskopio ja Drive → Yhdistä Google Driveen → valitse tili → hyväksy lupa. Googlen lupapyynnössä sovelluksen nimenä näkyy app.jarkale.com.</p>
+    <p>Tiedot menevät Driven piilotettuun sovelluskansioon, jota muut eivät näe, ei myöskään sovelluksen tekijä.</p>
+    <p style="margin:0"><strong>Uusi puhelin:</strong> avaa Järkäle, yhdistä sama Google-tili, ja tiedot palaavat. Kehityskuvat palautetaan erikseen tallennetusta tiedostosta.</p>
   </div>
-  <p style="margin:14px 0 0"><a href="tietosuoja.html">Tietosuoja</a></p>
+  </details>
 </section>
 
-<!-- HAVAINTO JA AI -->
+<!-- YHTEENVEDOT -->
 <section class="section rv">
-  <span class="tag">Päivän huomio</span>
-  <h2>Yksi havainto, ei saarnaa</h2>
-  <p>Tallennuksen jälkeen näet yhden lauseen omasta datastasi: "Uni alle tavoitteen kolme päivää putkeen." Ei neuvoja – vain se, mitä numerot kertovat. Toimii ilman nettiä.</p>
-  <div class="ai"><span class="price">muutama snt / kpl</span><b>Kirjallinen yhteenveto</b><p style="margin:6px 0 0;font-size:13px">Halutessasi tekoälyn kirjoittama yhteenveto valitusta jaksosta omalla API-avaimella. Maksu menee suoraan tarjoajalle ja syntyy vain, kun painat nappia.</p></div>
+  <span class="tag">Yhteenvedot</span>
+  <h2>Havaintoja omista kirjauksistasi.</h2>
+  <p><strong>Päivän huomio.</strong> Tallennuksen jälkeen Järkäle voi näyttää lyhyen havainnon kirjauksistasi. Esimerkiksi: ”Uni alle tavoitteen kolme päivää putkeen.” Toiminto toimii myös ilman verkkoyhteyttä.</p>
+  <div class="ai"><b>Kirjallinen yhteenveto</b><p style="margin:6px 0 0;font-size:13px">Voit halutessasi pyytää tekoälyn kirjoittaman yhteenvedon valitsemastasi ajanjaksosta. Toiminto edellyttää omaa API-avainta. Palveluntarjoaja veloittaa käytöstä oman hinnastonsa mukaan. Yhteenveto tehdään vain pyynnöstäsi.</p></div>
 </section>
 
 <!-- UUTTA -->
 <section class="section rv" id="uutta">
-  <span class="tag">Uutta · 2.18.214 · marraskuu 2026</span>
-  <h2>Kehityskuvat, selkeämmät trendit ja vapaampi kirjaus</h2>
+  <span class="tag">Uutta · 2.18.218 · marraskuu 2026</span>
+  <h2>Viimeisimmät muutokset.</h2>
   <div class="card">
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Kehityskuvat.</strong> Ota kuvat puhelimen kameralla esimerkiksi kerran viikossa ja lisää ne galleriasta: edestä, sivulta, takaa tai omalla nimellä. Mitat-sivulla kuvat näkyvät viikoittain aamupainon keskiarvon kanssa, ja kahta viikkoa voi verrata rinnakkain. Kuvat ovat vain puhelimessasi, eivät Drivessa, ja ne tallennetaan talteen omaan tiedostoonsa. Otetaan käyttöön kohdasta Mitä seuraat.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Selkeämmät trendit.</strong> Ylimpänä näkyy, mikä muuttui edelliseen jaksoon verrattuna, ja vain selvät muutokset nousevat esiin. Jokaisella seurattavalla asialla on oma korttinsa, jossa keskiarvo, käyrä ja kirjausmäärä ovat yhdessä. Liikkeiden kehitys verrataan parhaaseen sarjaan, ja verenpaineen käyrä näkyy, vaikka mittaisit vain kerran viikossa.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Treeni ilman ohjelmaa.</strong> Aloita tyhjä treeni ja lisää liikkeet sitä mukaa kuin teet, kuin vihkoon. Aiemmat liikkeet tulevat ehdotuksiksi viime kerran lukuineen. Treenin päivän voi vaihtaa myös menneeseen, joten vanhatkin treenit saa kirjattua, ja tehdystä treenistä voi tallentaa ohjelman.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Kehitys näkyy kesken treenin.</strong> Napauta Viimeksi-riviä, niin sen alle tulevat aiemmat kerrat päivineen ja sarjoineen, kuin vihkossa. Lista pysyy auki, kunnes suljet sen.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Ohjelma vihkomerkinnöin.</strong> Ohjelmaan voi kirjoittaa myös tutuilla vihkomerkinnöillä: <b>Kyykky 140x5x3</b> on kolme viiden toiston sarjaa 140 kilolla, ja nousevat sarjat kuten <b>Kyykky 100x5, 120x3, 140x1</b> saavat jokainen oman painonsa. Prosentit (5x5 75 %) jäävät ohjeeksi eivätkä muutu kiloiksi.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Isompi teksti.</strong> Asetuksista voit valita tekstin koon: Normaali, Iso tai Järkäle. Vain teksti kasvaa, joten kaikki mahtuu edelleen ruudulle. Toimii myös iPhonella Koti-valikkoon lisätyssä Järkäleessä.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Useampi ohjelma rinnakkain.</strong> Jos sinulla on useampi ohjelma käytössä, esimerkiksi jokainen treenipäivä omana ohjelmanaan, kaikki päivät näkyvät suoraan Treeni-välilehdellä. Ohjelmaa ei tarvitse vaihtaa ennen treeniä.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Liikkeen historia pysyy koossa.</strong> Kun kirjoitat liikkeen nimeä, Järkäle ehdottaa aiemmin tekemiäsi samankaltaisia liikkeitä. Napautus jatkaa vanhaa historiaa, vaikka kirjoittaisit nimen eri tavalla. Ja jos kirjasit sarjat väärällä liikkeellä, Vaihda liike korjaa nimen ja sarjat siirtyvät oikealle liikkeelle. Jos sama liike on kirjattu eri nimillä, liikkeen sivulta voi <strong>yhdistää</strong> ne, ja koko historia lasketaan yhdessä. Yhdistämisen voi perua.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Treenin kuva talteen.</strong> Jaa-valinnassa on nyt myös Tallenna kuva. Kuva tallentuu puhelimeen, josta sen voi lisätä esimerkiksi Instagramiin.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Tiedot turvassa useammalla laitteella.</strong> Jos samaa treeniä muokataan kahdella laitteella ennen synkronointia, kummankin kirjaamat sarjat säilyvät. iPhonella selaimessa Järkäle kertoo tarkasti, mitkä tiedot ovat vaarassa kadota ja miten ne saa talteen.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Keskeneräinen mittaus ei katoa.</strong> Jos puhelin sulkee Järkäleen taustalla ennen kuin ehdit tallentaa, mittaukset palautuvat, kun avaat sovelluksen uudelleen. Sama koskee liitettävää ohjelmatekstiä.</span></div>
-    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>FFMI myös ihopoimuista.</strong> Jos mittaat ihopoimut pihdeillä, lihasmassaindeksi lasketaan myös ihopoimuarvion mukaan Navy-arvon rinnalle. Arviot voivat erota selvästi, ja näet molemmat.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Kehityskuvat.</strong> Lisää kuvia viikoittain ja vertaa kahta viikkoa rinnakkain.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Uudistetut trendit.</strong> Keskiarvo, käyrä ja kirjausten määrä löytyvät samasta näkymästä. Jaksojen väliset muutokset näkyvät yhteenvedossa.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Treeni ilman ohjelmaa.</strong> Aloita tyhjä treeni, lisää liikkeet ja tallenna kokonaisuus halutessasi ohjelmaksi.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Aiemmat sarjat näkyviin treenin aikana.</strong> Napauta Viimeksi-riviä nähdäksesi liikkeen aiemmat treenikerrat.</span></div>
   </div>
+  <details class="older guide"><summary>Kaikki muutokset</summary>
+  <div class="sub"><div class="card">
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Ennätykset trendeissä.</strong> Salitreenien kohdalla näkyvät jakson ennätykset ja aiempi paras. Laskeneita liikkeitä ei luokitella, koska painon hakeminen tai kevennys ei ole heikentymistä.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Mitat ilman luokkia.</strong> Rasvaprosentin ja FFMI:n vieressä ei enää ole luokkaa (esim. Keskitaso). Yleiset viiterajat löytyvät kohdasta Mistä luvut tulevat?</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Verenpaine ja verensokeri käyränä.</strong> Käyrä näkyy myös, kun mittaat harvoin, esimerkiksi kerran viikossa.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Lääkkeet omana kohtanaan.</strong> Lääkkeet löytyvät Asetuksista omana osionaan. Lomake näyttää kerta-annoksen viikkomäärän, ja lääkkeelle voi lisätä muistiinpanon.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Vihkomerkinnät ohjelmassa.</strong> Kyykky 140x5x3 ja nousevat sarjat kuten 100x5, 120x3, 140x1 tunnistetaan. Prosentit jäävät ohjeeksi.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Isompi teksti.</strong> Tekstin koko Normaali, Iso tai Järkäle kohdassa Asetukset → Ulkoasu. Asettelu mukautuu, joten kaikki mahtuu ruudulle.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Useampi ohjelma rinnakkain.</strong> Kaikkien ohjelmien päivät näkyvät Treeni-välilehdellä, joten ohjelmaa ei tarvitse vaihtaa ennen treeniä.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Liikkeen historia pysyy koossa.</strong> Samankaltaiset liikkeet ehdotetaan nimeä kirjoittaessa. Väärin kirjatun liikkeen voi vaihtaa, ja eri nimillä kirjatut liikkeet voi yhdistää. Yhdistämisen voi perua.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Treenin kuva talteen.</strong> Jaa-valinnassa on Tallenna kuva, jolla kuva tallentuu puhelimeen.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Useampi laite.</strong> Jos samaa treeniä muokataan kahdella laitteella ennen synkronointia, molempien sarjat säilyvät. iPhonen selaimessa Järkäle kertoo, mitkä tiedot ovat vaarassa kadota.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>Keskeneräinen mittaus säilyy.</strong> Jos puhelin sulkee Järkäleen ennen tallennusta, mittaukset ja liitetty ohjelmateksti palautuvat.</span></div>
+    <div class="update"><span class="ck"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.6 4.5L19.5 7"/></svg></span><span><strong>FFMI myös ihopoimuista.</strong> Ihopoimumittauksesta lasketaan oma FFMI Navy-arvion rinnalle. Arviot voivat erota selvästi.</span></div>
+  </div></div>
+  </details>
 </section>
 
 <!-- AIEMMAT -->
@@ -493,27 +507,28 @@ footer b{font:800 15px/1 Manrope,system-ui,sans-serif;color:var(--acc);letter-sp
   </details>
 </section>
 
-<!-- LOPPU -->
+<!-- KÄYTTÖÖNOTTO -->
 <section class="final">
-  <div class="kicker">VALMIS?</div>
-  <h2>Ota käyttöön</h2>
-  <p>Avautuu heti selaimessa. Asenna puhelimeen kuin sovellus.</p>
+  <h2>Avaa Järkäle ja aloita.</h2>
+  <p>Järkäle toimii suoraan selaimessa ilman rekisteröitymistä. Puhelimessa voit lisätä sen kotinäytölle.</p>
   <a class="cta" href="https://app.jarkale.com/">Avaa Järkäle <svg class="ico" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.8 5 13.4h6.6l-1 7.8 8-10.7h-6.7z"/></svg></a>
   <div class="steps">
-    <span class="tag">Asenna kotinäytölle</span>
-    <p class="steps-h"><strong>Android (Chrome)</strong></p>
-    <div class="step"><span class="num">1</span><span>Avaa linkki <strong>Chrome</strong>-selaimella ja paina oikeassa yläkulmassa <strong>⋮</strong></span></div>
-    <div class="step"><span class="num">2</span><span>Valitse <strong>Lisää aloitusnäyttöön</strong> ja sitten <strong>Asenna</strong> (ei "Luo pikakuvake").</span></div>
-    <div class="step"><span class="num">3</span><span>Järkäle ilmestyy kotinäytölle omana kuvakkeenaan. Jos ei näy, katso sovelluslistasta.</span></div>
-    <p class="steps-h"><strong>iPhone ja iPad (Safari)</strong></p>
-    <div class="step"><span class="num">1</span><span>Avaa linkki <strong>Safarilla</strong> ja paina <strong>Jaa</strong>-kuvaketta</span></div>
-    <div class="step"><span class="num">2</span><span>Valitse <strong>Lisää Koti-valikkoon</strong>.</span></div>
-    <div class="step"><span class="num">3</span><span>Kirjaa alusta asti kuvakkeesta: Koti-valikon sovelluksella on oma tallennustilansa, eri kuin Safarilla. Yhdistä Google Driveen, niin tiedot ovat tallessa.</span></div>
-    <p class="steps-note">Ei sovelluskauppaa · Ei rekisteröitymistä · Tiedot omalla laitteellasi</p>
+    <span class="tag">Lisää Järkäle puhelimen kotinäytölle</span>
+    <p class="steps-h"><strong>Android / Chrome</strong></p>
+    <div class="step"><span class="num">1</span><span>Avaa Järkäle Chromessa.</span></div>
+    <div class="step"><span class="num">2</span><span>Avaa selaimen <strong>⋮</strong>-valikko ja valitse <strong>Lisää aloitusnäyttöön</strong>.</span></div>
+    <div class="step"><span class="num">3</span><span>Valitse <strong>Asenna</strong>, jos selain tarjoaa sekä asennusta että pikakuvaketta.</span></div>
+    <div class="step"><span class="num">4</span><span>Avaa Järkäle jatkossa sen omasta kuvakkeesta.</span></div>
+    <p class="steps-h"><strong>iPhone ja iPad / Safari</strong></p>
+    <div class="step"><span class="num">1</span><span>Avaa Järkäle Safarissa.</span></div>
+    <div class="step"><span class="num">2</span><span>Paina <strong>Jaa</strong>-painiketta ja valitse <strong>Lisää Koti-valikkoon</strong>.</span></div>
+    <div class="step"><span class="num">3</span><span>Avaa Järkäle kotinäytön kuvakkeesta ja aloita kirjaaminen siellä.</span></div>
+    <p class="steps-note" style="text-align:left"><strong>Huomio iPhonelle ja iPadille:</strong> Safarissa ja kotinäytön kautta avatussa Järkäleessä on erilliset paikalliset tiedot. Jos olet jo tehnyt kirjauksia Safarissa, yhdistä Google Drive ennen siirtymistä kotinäytön versioon.</p>
+    <p class="steps-note">Ilmainen · Ei rekisteröitymistä</p>
   </div>
 </section>
 
-<footer><b>Järkäle</b><span>Treenipäiväkirja · 2026</span><span style="flex-basis:100%;height:0"></span><span>Tekijä Aku Mykkänen</span><span>·</span><a href="mailto:tuki@jarkale.com?subject=Palaute%20J%C3%A4rk%C3%A4leest%C3%A4">Palaute: tuki@jarkale.com</a><span>·</span><a href="tietosuoja.html">Tietosuoja</a></footer>
+<footer><b>Järkäle</b><span>Treenipäiväkirja ja kehon seuranta</span><span style="flex-basis:100%;height:0"></span><span>Tekijä Aku Mykkänen · 2026</span><span style="flex-basis:100%;height:0"></span><a href="mailto:tuki@jarkale.com?subject=Palaute%20J%C3%A4rk%C3%A4leest%C3%A4">Palaute: tuki@jarkale.com</a><span>·</span><a href="tietosuoja.html">Tietosuoja</a></footer>
 </div>
 
 <script>
